@@ -1,4 +1,4 @@
-﻿namespace ConsoleSteam
+﻿namespace ConsoleSteam.Models
 {
     public class LeagueGamesModel
     {
