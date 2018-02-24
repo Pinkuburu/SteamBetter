@@ -46,3 +46,10 @@ GetAppList   Full list of every publicly facing program in the store/library.
 GetServersAtAddress   Shows all steam-compatible servers related to a IPv4 Address.
 UpToDateCheck      Check if a given app version is the most current available.
 
+
+https://www.opendota.com/
+
+https://api.opendota.com/api/matches/{match_id}
+
+
+http://liquipedia.net/dota2/Main_Page

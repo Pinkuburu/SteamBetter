@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ConsoleSteam")]
-[assembly: AssemblyCopyright("Copyright © DahlLabs 2018")]
+[assembly: AssemblyProduct("SteamBetter")]
+[assembly: AssemblyCopyright("Copyright © 2018 DahlLabs")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

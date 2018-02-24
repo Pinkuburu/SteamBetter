@@ -1,0 +1,46 @@
+{
+	"response": {
+		"badges": [
+			{
+				"badgeid": 13,
+				"level": 72,
+				"completion_time": 1513762927,
+				"xp": 283,
+				"scarcity": 7628641
+			},
+			{
+				"badgeid": 21,
+				"level": 1,
+				"completion_time": 1420123382,
+				"xp": 100,
+				"scarcity": 16540439
+			},
+			{
+				"badgeid": 2,
+				"level": 1,
+				"completion_time": 1379688677,
+				"xp": 100,
+				"scarcity": 32117864
+			},
+			{
+				"badgeid": 6,
+				"level": 3,
+				"completion_time": 1325419508,
+				"xp": 55,
+				"scarcity": 1606630
+			},
+			{
+				"badgeid": 1,
+				"level": 13,
+				"completion_time": 1103228957,
+				"xp": 650,
+				"scarcity": 2874122
+			}
+		]
+		,
+		"player_xp": 1188,
+		"player_level": 10,
+		"player_xp_needed_to_level_up": 12,
+		"player_xp_needed_current_level": 1000
+	}
+}

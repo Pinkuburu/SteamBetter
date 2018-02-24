@@ -54,7 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\LeagueGamesModel.cs" />
+    <Compile Include="Models\LiveLeagueGamesModel.cs" />
+    <Compile Include="Models\LeagueListingModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,7 +69,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SampleResponses\" />
+    <Folder Include="SampleResponses\xml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SteamApiCLient\SteamApiClient.csproj">
+      <Project>{dcf412f0-6335-4bf4-a519-4c0a30801cad}</Project>
+      <Name>SteamApiClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
