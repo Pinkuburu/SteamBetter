@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace SteamApiWeb
+namespace SteamBetterWeb
 {
     public class BundleConfig
     {

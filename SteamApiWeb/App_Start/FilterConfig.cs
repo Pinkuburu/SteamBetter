@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SteamApiWeb
+namespace SteamBetterWeb
 {
     public class FilterConfig
     {

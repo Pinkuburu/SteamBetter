@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using SteamApiClient.Interfaces;
+using SteamApiClient.Services;
 
-namespace SteamApiWeb.Controllers
+namespace SteamBetterWeb.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/key.user"));
+
+            ISteampoweredApi steam = new SteampoweredApi(key);
+            var listing = steam.Dota2MatchApi.GetLeagueListing();
+            var games = steam.Dota2MatchApi.GetLiveLeagueGames();
+
             return View();
         }
 
