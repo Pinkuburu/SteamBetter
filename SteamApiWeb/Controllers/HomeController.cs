@@ -19,16 +19,23 @@ namespace SteamBetterWeb.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/key.user"));
+            ISteampoweredApi steam = new SteampoweredApi(key);
+            var listing = steam.Dota2MatchApi.GetLeagueListing();
+            //var games = steam.Dota2MatchApi.GetLiveLeagueGames();
+
+            return View(listing);
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/key.user"));
+            ISteampoweredApi steam = new SteampoweredApi(key);
+            //var listing = steam.Dota2MatchApi.GetLeagueListing();
+            var games = steam.Dota2MatchApi.GetLiveLeagueGames();
 
-            return View();
+            return View(games);
         }
     }
 }

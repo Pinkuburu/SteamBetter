@@ -1,7 +1,30 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model SteamApiClient.Models.LeagueListingModel
 
-<p>Use this area to provide additional information.</p>
+<h2>Testing</h2>
+<h3>leagues</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>description</th>
+            <th>itemdef</th>
+            <th>url</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var l in Model.result.leagues)
+    {
+        <tr>
+            <td>@l.leagueid</td>
+            <td>@l.name</td>
+            <td>@l.description</td>
+            <td>@l.itemdef</td>
+            <td><a href="@l.tournament_url" target="tournamentTarget">visit</a></td>
+        </tr>
+
+    }
+    </tbody>
+</table>

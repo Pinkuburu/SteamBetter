@@ -1,17 +1,30 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model SteamApiClient.Models.LiveLeagueGamesModel
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<h2>Testing</h2>
+<h3>games</h3>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>dire</th>
+        <th>radiant</th>
+        <th>#</th>
+            
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var g in Model.result.games)
+    {
+        <tr>
+            <td>@g.league_id</td>
+            <td>@g.stage_name</td>
+            <td>@(g.dire_team?.team_name)</td>
+            <td>@(g.radiant_team?.team_name)</td>
+            <td>@g.spectators</td>
+        </tr>
+
+    }
+    </tbody>
+</table>
