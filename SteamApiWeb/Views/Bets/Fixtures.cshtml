@@ -1,0 +1,42 @@
+﻿@model PinnacleApiClient.Models.FixturesModel
+
+<h2>Testing</h2>
+<h3>fixtures @Model.sportId, @Model.last</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.league.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().name)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().events.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().events.First().home)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().events.First().away)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().events.First().status)</th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model.league)
+        {
+            foreach (var e in l.events)
+            {
+
+                <tr>
+                    <td>@l.id</td>
+                    <td>@l.name</td>
+                    <td>@e.id</td>
+                    <td>@e.home</td>
+                    <td>@e.away</td>
+                    <td>@e.status</td>
+                    <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId })</td>
+
+
+
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>

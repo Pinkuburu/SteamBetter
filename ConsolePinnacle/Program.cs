@@ -16,17 +16,19 @@ namespace ConsolePinnacle
             string url1 = "https://api.pinnacle.com/v1/client/balance";
             var url2 = "https://api.pinnacle.com/v2/sports";
             var url32 = "https://api.pinnacle.com/v2/leagues?sportId=12";
-            var url = "https://api.pinnacle.com/v1/odds?sportId=12";
+            var url21 = "https://api.pinnacle.com/v1/odds?sportId=12";
             var place = "https://api.pinnacle.com/v2/bets/straight";
+            string url = "https://api.pinnacle.com/v1/fixtures?sportId=12&leagueId=0";
+
 
             string data;
 
             Uri uri = new Uri(url);
-            int i=0;
+            int i = 0;
 
             using (WebClient wc = new WebClient())
             {
-               // wc.Headers.Add("Content-Type", "application/json");
+                // wc.Headers.Add("Content-Type", "application/json");
                 wc.Headers.Add(HttpRequestHeader.Authorization, $"Basic {token}");
 
                 Console.WriteLine($"Getting {url}");
@@ -37,8 +39,8 @@ namespace ConsolePinnacle
                 }
                 catch (WebException wex)
                 {
-                    var wr = (HttpWebResponse) wex.Response;
-                        
+                    var wr = (HttpWebResponse)wex.Response;
+
                     var resp = new StreamReader(wr.GetResponseStream()).ReadToEnd();
 
                     data = resp;
@@ -55,8 +57,8 @@ namespace ConsolePinnacle
                 var lm = JsonConvert.DeserializeObject<OddsModel>(data);
                 foreach (var league in lm.leagues)
                 {
-                 //   if (league.name.Contains("Dota 2") && league.name.Contains("ESL"))
-                 //   {
+                    //   if (league.name.Contains("Dota 2") && league.name.Contains("ESL"))
+                    //   {
                     foreach (var eve in league.events)
                     {
                         foreach (var p in eve.periods)
@@ -64,7 +66,7 @@ namespace ConsolePinnacle
                             Console.WriteLine($"{league.id} {p.lineId}");
                         }
                     }
-                 //   }
+                    //   }
 
                 }
 
@@ -78,7 +80,7 @@ namespace ConsolePinnacle
             }
 
             i++;
-        
+
             Console.ReadLine();
         }
     }

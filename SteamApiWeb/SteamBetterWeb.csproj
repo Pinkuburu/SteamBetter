@@ -240,6 +240,7 @@
     <Content Include="Views\Bets\Odds.cshtml" />
     <Content Include="Views\Bets\Line.cshtml" />
     <Content Include="Views\Bets\NoData.cshtml" />
+    <Content Include="Views\Bets\Fixtures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

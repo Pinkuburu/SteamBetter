@@ -11,11 +11,15 @@ namespace PinnacleApiClient.Services
         }
 
 
-        private string _balanceUrl = "https://api.pinnacle.com/v1/client/balance";
+        private readonly string _balanceUrl = "https://api.pinnacle.com/v1/client/balance";
+
         private readonly string _sportsUrl = "https://api.pinnacle.com/v2/sports";
         private readonly string _leaguesUrl = "https://api.pinnacle.com/v2/leagues?sportId={0}";
-        private string _oddsUrl = "https://api.pinnacle.com/v1/odds?sportId={0}";
-        private string _straightBetsUrl = "https://api.pinnacle.com/v2/bets/straight";
+        private readonly string _oddsUrl = "https://api.pinnacle.com/v1/odds?sportId={0}";
+        private readonly string _fixturesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}";
+
+
+        private readonly string _straightBetsUrl = "https://api.pinnacle.com/v2/bets/straight";
 
         public SportsModel GetSports()
         {
@@ -39,6 +43,14 @@ namespace PinnacleApiClient.Services
             var uri = new Uri(url);
 
             return WebGet<OddsModel>(uri);
+        }
+
+        public FixturesModel GetFixturesForSportLeague(int sportId, int leagueId)
+        {
+            var url = string.Format(_fixturesUrl, sportId, leagueId);
+            var uri = new Uri(url);
+
+            return WebGet<FixturesModel>(uri);
         }
     }
 }

@@ -12,6 +12,7 @@
             <th>@Html.DisplayNameFor(m => m.sports.First().eventSpecialsCount)</th>
             <th></th>
             <th></th>
+            <th></th>
 
         </tr>
     </thead>
@@ -25,6 +26,7 @@
             <td>@s.eventSpecialsCount</td>
             <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.id })</td>
             <td>@Html.ActionLink("Odds", "Odds", new { sportId = s.id })</td>
+            <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = s.id, leagueId = 0 })</td>
         </tr>
 
         }

@@ -27,6 +27,15 @@ namespace SteamBetterWeb.Controllers
             return View(games);
         }
 
+        public ActionResult Fixtures(int sportId, int leagueId)
+        {
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
+            IPinnacleApi pinnacle = new PinnacleApi(key);
+            var fixtures = pinnacle.GetFixturesForSportLeague(sportId, leagueId);
+
+            return View(fixtures);
+        }
+
         public ActionResult Odds(int sportId)
         {
             string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));

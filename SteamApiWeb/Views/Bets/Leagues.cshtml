@@ -10,7 +10,7 @@
             <th>@Html.DisplayNameFor(m => m.leagues.First().name)</th>
             <th>@Html.DisplayNameFor(m => m.leagues.First().homeTeamType)</th>
             <th>@Html.DisplayNameFor(m => m.leagues.First().container)</th>
-
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +21,7 @@
             <td>@l.name</td>
             <td>@l.homeTeamType</td>
             <td>@l.container</td>
+            <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = 0, leagueId = l.id })</td>
         </tr>
 
     }
