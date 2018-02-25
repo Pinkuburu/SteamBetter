@@ -1,0 +1,28 @@
+﻿@model PinnacleApiClient.Models.LeaguesModel
+
+<h2>Testing</h2>
+<h3>leagues</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().name)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().homeTeamType)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().container)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var l in Model.leagues)
+    {
+        <tr>
+            <td>@l.id</td>
+            <td>@l.name</td>
+            <td>@l.homeTeamType</td>
+            <td>@l.container</td>
+        </tr>
+
+    }
+    </tbody>
+</table>

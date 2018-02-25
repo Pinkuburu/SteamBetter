@@ -1,0 +1,28 @@
+﻿@model PinnacleApiClient.Models.SportsModel
+
+<h2>Testing</h2>
+<h3>sports</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.sports.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.sports.First().name)</th>
+            <th>@Html.DisplayNameFor(m => m.sports.First().eventCount)</th>
+            <th>@Html.DisplayNameFor(m => m.sports.First().eventSpecialsCount)</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var s in Model.sports)
+    {
+        <tr>
+            <td>@s.id</td>
+            <td>@s.name</td>
+            <td>@s.eventCount</td>
+            <td>@s.eventSpecialsCount</td>
+        </tr>
+
+    }
+    </tbody>
+</table>

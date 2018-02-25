@@ -10,7 +10,7 @@ namespace ConsolePinnacle
     {
         private static void Main()
         {
-            var token = File.ReadAllText("key.user");
+            var token = File.ReadAllText("token.user");
 
 
             string url1 = "https://api.pinnacle.com/v1/client/balance";

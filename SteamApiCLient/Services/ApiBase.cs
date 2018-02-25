@@ -3,8 +3,6 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using SteamApiClient.Interfaces;
-using SteamApiClient.Models;
 
 namespace SteamApiClient.Services
 {
@@ -51,7 +49,7 @@ namespace SteamApiClient.Services
         {
             try
             {
-                using (var stream = File.CreateText($"..\\..\\SampleResponses\\{fileName}.json"))
+                using (var stream = File.CreateText($"..\\..\\SteamSampleResponses\\{fileName}.json"))
                 {
                     stream.Write(data);
                     stream.Close();

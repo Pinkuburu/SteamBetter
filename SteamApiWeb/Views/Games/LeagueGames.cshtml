@@ -1,0 +1,30 @@
+﻿@model SteamApiClient.Models.LiveLeagueGamesModel
+
+<h2>Testing</h2>
+<h3>games</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().league_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().stage_name)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().dire_team.team_name)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().radiant_team.team_name)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().spectators)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var g in Model.result.games)
+    {
+        <tr>
+            <td>@g.league_id</td>
+            <td>@g.stage_name</td>
+            <td>@(g.dire_team?.team_name)</td>
+            <td>@(g.radiant_team?.team_name)</td>
+            <td>@g.spectators</td>
+        </tr>
+
+    }
+    </tbody>
+</table>

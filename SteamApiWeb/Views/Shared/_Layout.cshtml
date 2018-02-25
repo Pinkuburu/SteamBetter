@@ -9,12 +9,13 @@
 </head>
 <body>
     <div class="container">
-              
-        @Html.ActionLink("SteamBetter", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-           
-        @Html.ActionLink("Home", "Index", "Home")
-        @Html.ActionLink("Leagues", "About", "Home")
-        @Html.ActionLink("Games", "Contact", "Home")
+
+        @Html.ActionLink("SteamBetter", "Index", "Home", null, new { @class = "navbar-brand" })
+
+        @Html.ActionLink("S - Leagues", "Leagues", "Games")
+        @Html.ActionLink("S - Games", "LeagueGames", "Games") | 
+        @Html.ActionLink("P - Sports", "Sports", "Bets")
+        @Html.ActionLink("P - Leagues", "Leagues", "Bets")
     </div>
     <div class="container body-content">
         @RenderBody()

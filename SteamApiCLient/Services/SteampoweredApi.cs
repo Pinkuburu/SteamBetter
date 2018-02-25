@@ -24,11 +24,11 @@ namespace SteamApiClient.Services
         {
             private readonly string _leagueListingUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}";
 
-            private string liveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}";
-            private string matchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id=3750525726";
-            private string matchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
-            private string teamInfoUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}";
-            private string playerStatsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id=292917068";
+            private string _liveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}";
+            private string _matchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id=3750525726";
+            private string _matchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
+            private string _teamInfoUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}";
+            private string _playerStatsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id=292917068";
 
             private readonly string _key;
 
@@ -47,10 +47,10 @@ namespace SteamApiClient.Services
 
             public LiveLeagueGamesModel GetLiveLeagueGames()
             {
-                var url = string.Format(liveLeagueGamesUrl, _key);
+                var url = string.Format(_liveLeagueGamesUrl, _key);
                 var uri = new Uri(url);
 
-                return WebGet<LiveLeagueGamesModel>(uri, nameof(liveLeagueGamesUrl));
+                return WebGet<LiveLeagueGamesModel>(uri, nameof(_liveLeagueGamesUrl));
             }
 
         }
