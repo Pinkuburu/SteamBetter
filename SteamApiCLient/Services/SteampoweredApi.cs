@@ -42,7 +42,7 @@ namespace SteamApiClient.Services
                 var url = string.Format(_leagueListingUrl, _key);
                 var uri = new Uri(url);
 
-                return WebGet<LeagueListingModel>(uri, nameof(_leagueListingUrl));
+                return WebGet<LeagueListingModel>(uri);
             }
 
             public LiveLeagueGamesModel GetLiveLeagueGames()
@@ -50,7 +50,7 @@ namespace SteamApiClient.Services
                 var url = string.Format(_liveLeagueGamesUrl, _key);
                 var uri = new Uri(url);
 
-                return WebGet<LiveLeagueGamesModel>(uri, nameof(_liveLeagueGamesUrl));
+                return WebGet<LiveLeagueGamesModel>(uri);
             }
 
         }

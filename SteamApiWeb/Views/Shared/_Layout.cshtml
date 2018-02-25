@@ -11,11 +11,12 @@
     <div class="container">
 
         @Html.ActionLink("SteamBetter", "Index", "Home", null, new { @class = "navbar-brand" })
-
+        <br />
         @Html.ActionLink("S - Leagues", "Leagues", "Games")
-        @Html.ActionLink("S - Games", "LeagueGames", "Games") | 
+        @Html.ActionLink("S - Games", "LeagueGames", "Games") |
+        <br />
         @Html.ActionLink("P - Sports", "Sports", "Bets")
-        @Html.ActionLink("P - Leagues", "Leagues", "Bets")
+        @Html.ActionLink("P - Leagues", "Leagues", "Bets", new { sportId = 12 }, null)
     </div>
     <div class="container body-content">
         @RenderBody()

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 using PinnacleApiClient.Interfaces;
 using PinnacleApiClient.Services;
 
@@ -17,13 +18,38 @@ namespace SteamBetterWeb.Controllers
             return View(listing);
         }
 
-        public ActionResult Leagues()
+        public ActionResult Leagues(int sportId)
         {
             string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
             IPinnacleApi pinnacle = new PinnacleApi(key);
-            var games = pinnacle.GetLeagues();
+            var games = pinnacle.GetLeaguesForSport(sportId);
 
             return View(games);
+        }
+
+        public ActionResult Odds(int sportId)
+        {
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
+            IPinnacleApi pinnacle = new PinnacleApi(key);
+            var games = pinnacle.GetOddsForSports(sportId);
+
+            if (games != null)
+            {
+                return View(games);
+            }
+            else
+            {
+                return View("NoData");
+            }
+        }
+
+        public ActionResult Line(int sportId, int lineId)
+        {
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
+            IPinnacleApi pinnacle = new PinnacleApi(key);
+            var games = pinnacle.GetOddsForSports(sportId);
+
+            return View();
         }
     }
 }

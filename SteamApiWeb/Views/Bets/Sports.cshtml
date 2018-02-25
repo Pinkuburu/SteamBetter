@@ -10,19 +10,23 @@
             <th>@Html.DisplayNameFor(m => m.sports.First().name)</th>
             <th>@Html.DisplayNameFor(m => m.sports.First().eventCount)</th>
             <th>@Html.DisplayNameFor(m => m.sports.First().eventSpecialsCount)</th>
-            
+            <th></th>
+            <th></th>
+
         </tr>
     </thead>
     <tbody>
-    @foreach (var s in Model.sports)
-    {
+        @foreach (var s in Model.sports)
+        {
         <tr>
             <td>@s.id</td>
             <td>@s.name</td>
             <td>@s.eventCount</td>
             <td>@s.eventSpecialsCount</td>
+            <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.id })</td>
+            <td>@Html.ActionLink("Odds", "Odds", new { sportId = s.id })</td>
         </tr>
 
-    }
+        }
     </tbody>
 </table>

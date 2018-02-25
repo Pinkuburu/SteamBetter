@@ -1,0 +1,43 @@
+﻿@model PinnacleApiClient.Models.OddsModel
+
+<h2>Testing</h2>
+<h3>odds @Model.sportId, @Model.last</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().lineId)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxSpread)</th>
+            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxTotal)</th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model.leagues)
+        {
+            foreach (var e in l.events)
+            {
+                foreach (var p in e.periods)
+                {
+
+                    <tr>
+                        <td>@l.id</td>
+                        <td>@e.id</td>
+                        <td>@p.lineId</td>
+                        <td>@p.maxSpread</td>
+                        <td>@p.maxTotal</td>
+                        <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, lineId = p.lineId })</td>
+
+
+
+
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>

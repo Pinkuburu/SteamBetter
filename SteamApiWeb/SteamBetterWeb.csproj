@@ -237,6 +237,9 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Bets\Sports.cshtml" />
     <Content Include="Views\Bets\Leagues.cshtml" />
+    <Content Include="Views\Bets\Odds.cshtml" />
+    <Content Include="Views\Bets\Line.cshtml" />
+    <Content Include="Views\Bets\NoData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

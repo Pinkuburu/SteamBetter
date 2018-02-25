@@ -15,7 +15,7 @@ namespace PinnacleApiClient.Services
 
         private readonly string _token;
 
-        protected T WebGet<T>(Uri uri, string fileName = "")
+        protected T WebGet<T>(Uri uri)
         {
             using (var wc = new WebClient())
             {
@@ -24,11 +24,6 @@ namespace PinnacleApiClient.Services
                 try
                 {
                     string data = wc.DownloadString(uri);
-
-                    if (!string.IsNullOrWhiteSpace(fileName))
-                    {
-                        SaveJsonFileAsync(fileName, data);
-                    }
 
                     var lm = JsonConvert.DeserializeObject<T>(data);
                     return lm;
@@ -48,25 +43,5 @@ namespace PinnacleApiClient.Services
             }
         }
 
-        private void SaveJsonFileAsync(string fileName, string data)
-        {
-            Task.Factory.StartNew(() => SaveJsonFile(fileName, data));
-        }
-
-        private void SaveJsonFile(string fileName, string data)
-        {
-            try
-            {
-                using (var stream = File.CreateText($"..\\..\\PinnacleSampleResponses\\{fileName}.json"))
-                {
-                    stream.Write(data);
-                    stream.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
     }
 }

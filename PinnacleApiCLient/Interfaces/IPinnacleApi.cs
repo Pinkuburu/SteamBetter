@@ -5,6 +5,8 @@ namespace PinnacleApiClient.Interfaces
     public interface IPinnacleApi
     {
         SportsModel GetSports();
-        LeaguesModel GetLeagues();
+        LeaguesModel GetLeaguesForSport(int sportId);
+        OddsModel GetOddsForSports(int sportId);
+
     }
 }

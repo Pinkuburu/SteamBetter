@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePinnacle", "ConsoleP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinnacleApiClient", "PinnacleApiCLient\PinnacleApiClient.csproj", "{366618A1-C0B4-40C3-A5A7-1514E46C9D44}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{F4C813E6-0CFE-4FF5-A135-655835D01924}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA563655-1C2E-48AE-A763-5E7ADD33C6ED} = {F4C813E6-0CFE-4FF5-A135-655835D01924}
+		{8D82E605-2632-4278-8008-D1C063C50874} = {F4C813E6-0CFE-4FF5-A135-655835D01924}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D272589-2CB6-41E4-9366-51647D363765}
