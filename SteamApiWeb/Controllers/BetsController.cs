@@ -36,11 +36,11 @@ namespace SteamBetterWeb.Controllers
             return View(fixtures);
         }
 
-        public ActionResult Odds(int sportId)
+        public ActionResult Odds(int sportId, int eventId)
         {
             string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
             IPinnacleApi pinnacle = new PinnacleApi(key);
-            var games = pinnacle.GetOddsForSports(sportId);
+            var games = pinnacle.GetOddsForEvent(sportId, eventId);
 
             if (games != null)
             {
@@ -52,13 +52,28 @@ namespace SteamBetterWeb.Controllers
             }
         }
 
-        public ActionResult Line(int sportId, int lineId)
+        public ActionResult LineById(int lineId)
         {
             string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
             IPinnacleApi pinnacle = new PinnacleApi(key);
-            var games = pinnacle.GetOddsForSports(sportId);
+            //var lines = pinnacle.GetLinesForEvent(sportId, leagueId, eventId);
 
-            return View();
+            return View("Line");
+        }
+        
+        public ActionResult Line(int sportId, int leagueId, int eventId)
+        {
+            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
+            IPinnacleApi pinnacle = new PinnacleApi(key);
+            var lines = pinnacle.GetLinesForEvent(sportId, leagueId, eventId);
+
+            return View(lines);
+        }
+
+        [HttpPost]
+        public ActionResult PostBet(int lineid)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

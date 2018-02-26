@@ -1,14 +1,48 @@
-﻿
-<h2>Testing</h2>
-<h3>line </h3>
+﻿@model PinnacleApiClient.Models.LinesModel
 
-<table class="table">
-    <thead>
-        <tr>
+<div >
+    <h2>Testing</h2>
+    <h3>line </h3>
+</div>
+
+<section id="loginForm">
+    @using (Html.BeginForm("PostBet", "Bets", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
 
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.lineId)</th>
+                    <td>@Model.lineId</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.effectiveAsOf)</th>
+                    <td>@Model.effectiveAsOf</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.status)</th>
+                    <td>@Model.status</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.price)</th>
+                    <td>@Model.price</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.team1Score)</th>
+                    <td>@Model.team1Score</td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(m => m.team2Score)</th>
+                    <td>@Model.team2Score</td>
+                </tr>
+                <tr>
+                    <td>@Html.ActionLink("Place bet", "PostBet", new { lineId = Model.lineId })</td>
+                    <td><input type="submit" value="Place bet" class="btn btn-default" /></td>
+                </tr>
+
+            </tbody>
+        </table>
+    }
+</section>

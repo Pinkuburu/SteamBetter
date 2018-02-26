@@ -23,19 +23,21 @@
             foreach (var e in l.events)
             {
 
-                <tr>
-                    <td>@l.id</td>
-                    <td>@l.name</td>
-                    <td>@e.id</td>
-                    <td>@e.home</td>
-                    <td>@e.away</td>
-                    <td>@e.status</td>
-                    <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId })</td>
+        <tr>
+            <td>@l.id</td>
+            <td>@l.name</td>
+            <td>@e.id</td>
+            <td>@e.home</td>
+            <td>@e.away</td>
+            <td>@e.status</td>
+            <td>@Html.ActionLink("Odds", "Odds", new { sportId = Model.sportId , eventId = e.id })</td>
+
+            <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId })</td>
 
 
 
 
-                </tr>
+        </tr>
             }
         }
     </tbody>

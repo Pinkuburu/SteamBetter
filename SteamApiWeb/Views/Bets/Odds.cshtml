@@ -12,6 +12,7 @@
             <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxSpread)</th>
             <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxTotal)</th>
             <th></th>
+            <th></th>
 
 
         </tr>
@@ -30,7 +31,8 @@
                         <td>@p.lineId</td>
                         <td>@p.maxSpread</td>
                         <td>@p.maxTotal</td>
-                        <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, lineId = p.lineId })</td>
+                        <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, leagueId = l.id, eventId = e.id })</td>
+                        <td>@Html.ActionLink("Line", "LineById", new { lineId = p.lineId })</td>
 
 
 
