@@ -1,6 +1,8 @@
-﻿@model PinnacleApiClient.Models.OddsModel
+﻿@using SteamBetterWeb.ViewModels.Bets;
 
-<h2>Testing</h2>
+@model OddsViewModel
+
+<h4>Testing</h4>
 <h3>odds @Model.sportId, @Model.last</h3>
 
 <table class="table">
@@ -12,7 +14,7 @@
             <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxSpread)</th>
             <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxTotal)</th>
             <th></th>
-            <th></th>
+
 
 
         </tr>
@@ -32,9 +34,6 @@
                         <td>@p.maxSpread</td>
                         <td>@p.maxTotal</td>
                         <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, leagueId = l.id, eventId = e.id })</td>
-                        <td>@Html.ActionLink("Line", "LineById", new { lineId = p.lineId })</td>
-
-
 
 
                     </tr>

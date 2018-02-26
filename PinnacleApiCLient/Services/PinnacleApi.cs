@@ -18,6 +18,7 @@ namespace PinnacleApiClient.Services
         private const string _oddsSportUrl = "https://api.pinnacle.com/v1/odds?sportId={0}";
         private const string _oddsEventUrl = "https://api.pinnacle.com/v1/odds?sportId={0}&eventIds={1}";
         private const string _fixturesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}";
+        private const string _fixturesByLeaguesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}&leagueIds={1}";
         private const string _linesUrl = "https://api.pinnacle.com/v1/line?sportId={0}&leagueId={1}&eventId={2}&team=Team1&betType=MONEYLINE&oddsFormat=Decimal&periodNumber=0";
 
 
@@ -29,8 +30,8 @@ namespace PinnacleApiClient.Services
             var uri = new Uri(url);
 
             return WebGet<SportsModel>(uri);
-        } 
-        
+        }
+
         public LeaguesModel GetLeaguesForSport(int sportId)
         {
             var url = string.Format(_leaguesUrl, sportId);
@@ -38,7 +39,7 @@ namespace PinnacleApiClient.Services
 
             return WebGet<LeaguesModel>(uri);
         }
-        
+
         public OddsModel GetOddsForSport(int sportId)
         {
             var url = string.Format(_oddsSportUrl, sportId);
@@ -57,18 +58,26 @@ namespace PinnacleApiClient.Services
 
         public FixturesModel GetFixturesForSportLeague(int sportId, int leagueId)
         {
-            var url = string.Format(_fixturesUrl, sportId, leagueId);
-            var uri = new Uri(url);
+            string url;
+            if (leagueId == 0)
+            {
+                url = string.Format(_fixturesUrl, sportId);
+            }
+            else
+            {
+                url = string.Format(_fixturesByLeaguesUrl, sportId, leagueId);
+            }
 
+            var uri = new Uri(url);
             return WebGet<FixturesModel>(uri);
         }
 
-        public LinesModel GetLinesForEvent(int sportId, int leagueId, int eventId)
+        public LineModel GetLineForEvent(int sportId, int leagueId, int eventId)
         {
             var url = string.Format(_linesUrl, sportId, leagueId, eventId);
             var uri = new Uri(url);
 
-            return WebGet<LinesModel>(uri);
+            return WebGet<LineModel>(uri);
         }
     }
 }

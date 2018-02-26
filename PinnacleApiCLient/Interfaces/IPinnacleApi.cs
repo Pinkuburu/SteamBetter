@@ -10,6 +10,6 @@ namespace PinnacleApiClient.Interfaces
         OddsModel GetOddsForEvent(int sportId, int eventId);
 
         FixturesModel GetFixturesForSportLeague(int sportId, int leagueId);
-        LinesModel GetLinesForEvent(int sportId, int leagueId, int eventId);
+        LineModel GetLineForEvent(int sportId, int leagueId, int eventId);
     }
 }

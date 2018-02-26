@@ -1,7 +1,9 @@
-﻿@model PinnacleApiClient.Models.LinesModel
+﻿@using SteamBetterWeb.ViewModels.Bets;
 
-<div >
-    <h2>Testing</h2>
+@model LineViewModel
+
+<div>
+    <h4>Testing</h4>
     <h3>line </h3>
 </div>
 
@@ -15,27 +17,27 @@
             <tbody>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.lineId)</th>
-                    <td>@Model.lineId</td>
+                    <td>@Html.TextBoxFor(m => m.lineId, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.effectiveAsOf)</th>
-                    <td>@Model.effectiveAsOf</td>
+                    <td>@Html.TextBoxFor(m => m.effectiveAsOf, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.status)</th>
-                    <td>@Model.status</td>
+                    <td>@Html.TextBoxFor(m => m.status, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.price)</th>
-                    <td>@Model.price</td>
+                    <td>@Html.TextBoxFor(m => m.price, new { @disabled = "disabled" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.team1Score)</th>
-                    <td>@Model.team1Score</td>
+                    <td>@Html.TextBoxFor(m => m.team1Score, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.LabelFor(m => m.team2Score)</th>
-                    <td>@Model.team2Score</td>
+                    <td>@Html.TextBoxFor(m => m.team2Score, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <td>@Html.ActionLink("Place bet", "PostBet", new { lineId = Model.lineId })</td>

@@ -1,50 +1,74 @@
-﻿using System.Configuration;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using System.Web.Routing;
+using AutoMapper;
 using PinnacleApiClient.Interfaces;
+using PinnacleApiClient.Models;
 using PinnacleApiClient.Services;
+using SteamBetterWeb.ViewModels.Bets;
 
 namespace SteamBetterWeb.Controllers
 {
     public class BetsController : Controller
     {
+        public BetsController()
+        {
+            _mapper = AutoMapperConfig.CreateMapper();
+        }
+
+        private  string _key;
+        private readonly IMapper _mapper;
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+
+            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/token.user"));
+
+        }
 
         public ActionResult Sports()
         {
 
             string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
             IPinnacleApi pinnacle = new PinnacleApi(key);
-            var listing = pinnacle.GetSports();
+            SportsModel sports = pinnacle.GetSports();
 
-            return View(listing);
+            SportsViewModel sportVms = _mapper.Map<SportsViewModel>(sports);
+
+            return View(sportVms);
         }
 
         public ActionResult Leagues(int sportId)
         {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
-            var games = pinnacle.GetLeaguesForSport(sportId);
+            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            LeaguesModel leagues = pinnacle.GetLeaguesForSport(sportId);
 
-            return View(games);
+            LeaguesViewModel leagueVms = _mapper.Map<LeaguesViewModel>(leagues);
+            leagueVms.sportId = sportId;
+
+            return View(leagueVms);
         }
 
         public ActionResult Fixtures(int sportId, int leagueId)
         {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
-            var fixtures = pinnacle.GetFixturesForSportLeague(sportId, leagueId);
+            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            FixturesModel fixtures = pinnacle.GetFixturesForSportLeague(sportId, leagueId);
 
-            return View(fixtures);
+            FixturesViewModel fixturesVms = _mapper.Map<FixturesViewModel>(fixtures);
+
+            return View(fixturesVms);
         }
 
         public ActionResult Odds(int sportId, int eventId)
         {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
-            var games = pinnacle.GetOddsForEvent(sportId, eventId);
+            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            OddsModel odds = pinnacle.GetOddsForEvent(sportId, eventId);
 
-            if (games != null)
+            OddsViewModel oddsVms = _mapper.Map<OddsViewModel>(odds);
+
+            if (oddsVms != null)
             {
-                return View(games);
+                return View(oddsVms);
             }
             else
             {
@@ -52,28 +76,22 @@ namespace SteamBetterWeb.Controllers
             }
         }
 
-        public ActionResult LineById(int lineId)
-        {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
-            //var lines = pinnacle.GetLinesForEvent(sportId, leagueId, eventId);
-
-            return View("Line");
-        }
+        
         
         public ActionResult Line(int sportId, int leagueId, int eventId)
         {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
-            var lines = pinnacle.GetLinesForEvent(sportId, leagueId, eventId);
+            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            LineModel line = pinnacle.GetLineForEvent(sportId, leagueId, eventId);
 
-            return View(lines);
+            LineViewModel lineVm = _mapper.Map<LineViewModel>(line);
+
+            return View(lineVm);
         }
 
         [HttpPost]
-        public ActionResult PostBet(int lineid)
+        public ActionResult PostBet(LineViewModel line)
         {
-            throw new System.NotImplementedException();
+            return View("Line", line);
         }
     }
 }

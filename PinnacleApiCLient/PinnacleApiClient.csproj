@@ -47,7 +47,7 @@
     <Compile Include="Models\BalanceModel.cs" />
     <Compile Include="Models\FixturesModel.cs" />
     <Compile Include="Models\LeaguesModel.cs" />
-    <Compile Include="Models\LinesModel.cs" />
+    <Compile Include="Models\LineModel.cs" />
     <Compile Include="Models\OddsModel.cs" />
     <Compile Include="Models\SportsModel.cs" />
     <Compile Include="Services\ApiBase.cs" />

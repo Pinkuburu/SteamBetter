@@ -1,6 +1,8 @@
-﻿@model PinnacleApiClient.Models.SportsModel
+﻿@using SteamBetterWeb.ViewModels.Bets;
 
-<h2>Testing</h2>
+@model SportsViewModel
+
+<h4>Testing</h4>
 <h3>sports</h3>
 
 <table class="table">
@@ -11,7 +13,7 @@
             <th>@Html.DisplayNameFor(m => m.sports.First().eventCount)</th>
             <th>@Html.DisplayNameFor(m => m.sports.First().eventSpecialsCount)</th>
             <th></th>
-     
+
             <th></th>
 
         </tr>
@@ -19,14 +21,14 @@
     <tbody>
         @foreach (var s in Model.sports)
         {
-        <tr>
-            <td>@s.id</td>
-            <td>@s.name</td>
-            <td>@s.eventCount</td>
-            <td>@s.eventSpecialsCount</td>
-            <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.id })</td>
-            <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = s.id, leagueId = 0 })</td>
-        </tr>
+            <tr>
+                <td>@s.id</td>
+                <td>@s.name</td>
+                <td>@s.eventCount</td>
+                <td>@s.eventSpecialsCount</td>
+                <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.id })</td>
+                <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = s.id, leagueId = 0 })</td>
+            </tr>
 
         }
     </tbody>

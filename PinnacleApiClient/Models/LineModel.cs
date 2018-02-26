@@ -2,7 +2,7 @@
 
 namespace PinnacleApiClient.Models
 {
-    public class LinesModel
+    public class LineModel
     {
             public string status { get; set; }
             public float price { get; set; }

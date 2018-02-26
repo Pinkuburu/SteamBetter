@@ -1,6 +1,8 @@
-﻿@model PinnacleApiClient.Models.FixturesModel
+﻿@using SteamBetterWeb.ViewModels.Bets;
 
-<h2>Testing</h2>
+@model FixturesViewModel
+
+<h4>Testing</h4>
 <h3>fixtures @Model.sportId, @Model.last</h3>
 
 <table class="table">
@@ -11,7 +13,7 @@
             <th>@Html.DisplayNameFor(m => m.league.First().events.First().id)</th>
             <th>@Html.DisplayNameFor(m => m.league.First().events.First().home)</th>
             <th>@Html.DisplayNameFor(m => m.league.First().events.First().away)</th>
-            <th>@Html.DisplayNameFor(m => m.league.First().events.First().status)</th>
+            <th title="O=Open, H=TempUnavailable, I=Red">@Html.DisplayNameFor(m => m.league.First().events.First().status)</th>
             <th></th>
 
 
@@ -30,12 +32,10 @@
             <td>@e.home</td>
             <td>@e.away</td>
             <td>@e.status</td>
-            <td>@Html.ActionLink("Odds", "Odds", new { sportId = Model.sportId , eventId = e.id })</td>
+            <td>@Html.ActionLink("Odds", "Odds", new { sportId = Model.sportId, eventId = e.id })</td>
 
-            <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId })</td>
-
-
-
+            <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, leagueId = l.id, eventId = e.id })</td>
+            
 
         </tr>
             }
