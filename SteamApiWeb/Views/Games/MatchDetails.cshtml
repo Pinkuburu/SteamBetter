@@ -1,0 +1,41 @@
+﻿@using SteamApiClient.Enums
+@model SteamApiClient.Models.MatchDetailsModel
+
+<h4>Testing</h4>
+<h3>match</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.result.match_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.game_mode)</th>
+            <th>@Html.DisplayNameFor(m => m.result.barracks_status_dire)</th>
+            <th>@Html.DisplayNameFor(m => m.result.barracks_status_dire)</th>
+            <th>@Html.DisplayNameFor(m => m.result.dire_score)</th>
+
+            <th>@Html.DisplayNameFor(m => m.result.barracks_status_radiant)</th>
+            <th>@Html.DisplayNameFor(m => m.result.tower_status_radiant)</th>
+            <th>@Html.DisplayNameFor(m => m.result.radiant_score)</th>
+            <th>@Html.DisplayNameFor(m => m.result.leagueid)</th>
+            <th>@Html.DisplayNameFor(m => m.result.start_time)</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.result.match_id</td>
+            <td>@GameModes.Describe(Model.result.game_mode)</td>
+            <td>@Convert.ToString(Model.result.barracks_status_dire, 2)</td>
+            <td>@Convert.ToString(Model.result.tower_status_dire, 2)</td>
+            <td>@Model.result.dire_score</td>
+            
+            <td>@Convert.ToString(Model.result.barracks_status_radiant, 2)</td>
+            <td>@Convert.ToString(Model.result.tower_status_radiant, 2)</td>
+            <td>@Model.result.radiant_score</td>
+            <td>@Model.result.leagueid</td>
+            <td>@DateTimeOffset.FromUnixTimeSeconds(Model.result.start_time).LocalDateTime</td>
+        </tr>
+
+    </tbody>
+</table>

@@ -9,8 +9,14 @@
             <th>@Html.DisplayNameFor(m => m.result.games.First().league_id)</th>
             <th>@Html.DisplayNameFor(m => m.result.games.First().stage_name)</th>
             <th>@Html.DisplayNameFor(m => m.result.games.First().dire_team.team_name)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().dire_series_wins)</th>
             <th>@Html.DisplayNameFor(m => m.result.games.First().radiant_team.team_name)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().radiant_series_wins)</th>
             <th>@Html.DisplayNameFor(m => m.result.games.First().spectators)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().match_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().series_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.games.First().series_type)</th>
+            <th></th>
 
         </tr>
     </thead>
@@ -21,8 +27,16 @@
             <td>@g.league_id</td>
             <td>@g.stage_name</td>
             <td>@(g.dire_team?.team_name)</td>
+            <td>@(g.dire_series_wins)</td>
             <td>@(g.radiant_team?.team_name)</td>
+            <td>@(g.radiant_series_wins)</td>
             <td>@g.spectators</td>
+            <td>@g.match_id</td>
+            <td>@g.series_id</td>
+            <td>@g.series_type</td>
+
+            <td>@Html.ActionLink("Match", "MatchDetails", new { matchId = g.match_id })</td>
+
         </tr>
 
     }

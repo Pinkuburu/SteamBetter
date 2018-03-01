@@ -3,16 +3,16 @@
 @model OddsViewModel
 
 <h4>Testing</h4>
-<h3>odds @Model.sportId, @Model.last</h3>
+<h3>odds @Model.SportId, @Model.Last</h3>
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m => m.leagues.First().id)</th>
-            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().id)</th>
-            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().lineId)</th>
-            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxSpread)</th>
-            <th>@Html.DisplayNameFor(m => m.leagues.First().events.First().periods.First().maxTotal)</th>
+            <th>@Html.DisplayNameFor(m => m.Leagues.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Leagues.First().Events.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Leagues.First().Events.First().Periods.First().LineId)</th>
+            <th>@Html.DisplayNameFor(m => m.Leagues.First().Events.First().Periods.First().MaxSpread)</th>
+            <th>@Html.DisplayNameFor(m => m.Leagues.First().Events.First().Periods.First().MaxTotal)</th>
             <th></th>
 
 
@@ -20,20 +20,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var l in Model.leagues)
+        @foreach (var l in Model.Leagues)
         {
-            foreach (var e in l.events)
+            foreach (var e in l.Events)
             {
-                foreach (var p in e.periods)
+                foreach (var p in e.Periods)
                 {
 
                     <tr>
-                        <td>@l.id</td>
-                        <td>@e.id</td>
-                        <td>@p.lineId</td>
-                        <td>@p.maxSpread</td>
-                        <td>@p.maxTotal</td>
-                        <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, leagueId = l.id, eventId = e.id })</td>
+                        <td>@l.Id</td>
+                        <td>@e.Id</td>
+                        <td>@p.LineId</td>
+                        <td>@p.MaxSpread</td>
+                        <td>@p.MaxTotal</td>
+                        <td>@Html.ActionLink("Line", "Line", new { sportId = Model.SportId, leagueId = l.Id, eventId = e.Id })</td>
 
 
                     </tr>

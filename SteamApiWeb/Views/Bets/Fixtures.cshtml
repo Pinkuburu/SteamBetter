@@ -3,17 +3,17 @@
 @model FixturesViewModel
 
 <h4>Testing</h4>
-<h3>fixtures @Model.sportId, @Model.last</h3>
+<h3>fixtures @Model.SportId, @Model.Last</h3>
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m => m.league.First().id)</th>
-            <th>@Html.DisplayNameFor(m => m.league.First().name)</th>
-            <th>@Html.DisplayNameFor(m => m.league.First().events.First().id)</th>
-            <th>@Html.DisplayNameFor(m => m.league.First().events.First().home)</th>
-            <th>@Html.DisplayNameFor(m => m.league.First().events.First().away)</th>
-            <th title="O=Open, H=TempUnavailable, I=Red">@Html.DisplayNameFor(m => m.league.First().events.First().status)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().Name)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().Events.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().Events.First().Home)</th>
+            <th>@Html.DisplayNameFor(m => m.league.First().Events.First().Away)</th>
+            <th title="O=Open, H=TempUnavailable, I=Red">@Html.DisplayNameFor(m => m.league.First().Events.First().Status)</th>
             <th></th>
 
 
@@ -22,19 +22,19 @@
     <tbody>
         @foreach (var l in Model.league)
         {
-            foreach (var e in l.events)
+            foreach (var e in l.Events)
             {
 
         <tr>
-            <td>@l.id</td>
-            <td>@l.name</td>
-            <td>@e.id</td>
-            <td>@e.home</td>
-            <td>@e.away</td>
-            <td>@e.status</td>
-            <td>@Html.ActionLink("Odds", "Odds", new { sportId = Model.sportId, eventId = e.id })</td>
+            <td>@l.Id</td>
+            <td>@l.Name</td>
+            <td>@e.Id</td>
+            <td>@e.Home</td>
+            <td>@e.Away</td>
+            <td>@e.Status</td>
+            <td>@Html.ActionLink("Odds", "Odds", new { sportId = Model.SportId, eventId = e.Id })</td>
 
-            <td>@Html.ActionLink("Line", "Line", new { sportId = Model.sportId, leagueId = l.id, eventId = e.id })</td>
+            <td>@Html.ActionLink("Line", "Line", new { sportId = Model.SportId, leagueId = l.Id, eventId = e.Id })</td>
             
 
         </tr>

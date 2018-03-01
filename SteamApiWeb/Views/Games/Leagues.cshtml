@@ -11,7 +11,7 @@
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().description)</th>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().itemdef)</th>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().tournament_url)</th>
-
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +23,9 @@
             <td>@l.description</td>
             <td>@l.itemdef</td>
             <td><a href="@l.tournament_url" target="tournamentTarget">visit</a></td>
+            <td>@Html.ActionLink("Games", "Games", new { leagueId = l.leagueid })</td>
+      
         </tr>
-
     }
     </tbody>
 </table>

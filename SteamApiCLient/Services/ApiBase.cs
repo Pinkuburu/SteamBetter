@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SteamApiClient.Models;
 
 namespace SteamApiClient.Services
 {
@@ -16,6 +17,12 @@ namespace SteamApiClient.Services
                 try
                 {
                     string data = wc.DownloadString(uri);
+
+                    var error = JsonConvert.DeserializeObject<ErrorModel>(data);
+                    if (error?.result?.error != null)
+                    {
+                        throw new Exception(error.result.error);
+                    }
 
                     var lm = JsonConvert.DeserializeObject<T>(data);
                     return lm;

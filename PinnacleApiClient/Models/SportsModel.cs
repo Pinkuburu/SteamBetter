@@ -1,4 +1,6 @@
-﻿namespace PinnacleApiClient.Models
+﻿// ReSharper disable InconsistentNaming
+
+namespace PinnacleApiClient.Models
 {
     public class SportsModel
     {

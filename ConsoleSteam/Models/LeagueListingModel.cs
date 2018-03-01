@@ -1,4 +1,6 @@
-﻿namespace ConsoleSteam.Models
+﻿// ReSharper disable InconsistentNaming
+
+namespace ConsoleSteam.Models
 {
     /// <summary>
     /// "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}",

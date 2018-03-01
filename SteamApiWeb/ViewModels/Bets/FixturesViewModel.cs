@@ -4,27 +4,27 @@ namespace SteamBetterWeb.ViewModels.Bets
 {
     public class FixturesViewModel
     {
-        public int sportId { get; set; }
-        public int last { get; set; }
+        public int SportId { get; set; }
+        public int Last { get; set; }
         public League[] league { get; set; }
 
         public class League
         {
-            public int id { get; set; }
-            public string name { get; set; }
-            public Event[] events { get; set; }
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public Event[] Events { get; set; }
         }
 
         public class Event
         {
-            public int id { get; set; }
-            public DateTime starts { get; set; }
-            public string home { get; set; }
-            public string away { get; set; }
-            public string rotNum { get; set; }
-            public int liveStatus { get; set; }
-            public string status { get; set; }
-            public int parlayRestriction { get; set; }
+            public int Id { get; set; }
+            public DateTime Starts { get; set; }
+            public string Home { get; set; }
+            public string Away { get; set; }
+            public string RotNum { get; set; }
+            public int LiveStatus { get; set; }
+            public string Status { get; set; }
+            public int ParlayRestriction { get; set; }
         }
 
     }

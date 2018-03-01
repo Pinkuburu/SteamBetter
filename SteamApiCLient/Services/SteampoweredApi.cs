@@ -1,8 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using SteamApiClient.Interfaces;
 using SteamApiClient.Models;
 
@@ -12,23 +8,22 @@ namespace SteamApiClient.Services
     {
         public SteampoweredApi(string key)
         {
- //           string key = File.ReadAllText(HttpContext.Current.Server.MapPath("~/key.user");
-
             Dota2MatchApi  = new Dota2Match(key);
 
         }
 
-        public IDota2Match Dota2MatchApi { get; } 
+        public IDota2Match Dota2MatchApi { get; }
 
-        public class Dota2Match : ApiBase, IDota2Match
+        private class Dota2Match : ApiBase, IDota2Match
         {
-            private const string _leagueListingUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}";
+            private const string LeagueListingUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}";
 
-            private const string _liveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}";
-            private const string _matchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id=3750525726";
-            private const string _matchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
-            private const string _teamInfoUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}";
-            private const string _playerStatsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id=292917068";
+            private const string LiveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}&leagueId={1}";
+            private const string MatchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id={1}";
+
+            private const string MatchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
+            private const string TeamInfoUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}";
+            private const string PlayerStatsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id=292917068";
 
             private readonly string _key;
 
@@ -39,18 +34,34 @@ namespace SteamApiClient.Services
 
             public LeagueListingModel GetLeagueListing()
             {
-                var url = string.Format(_leagueListingUrl, _key);
+                var url = string.Format(LeagueListingUrl, _key);
                 var uri = new Uri(url);
 
                 return WebGet<LeagueListingModel>(uri);
             }
 
-            public LiveLeagueGamesModel GetLiveLeagueGames()
+            public LiveLeagueGamesModel GetLiveLeagueGames(int leagueId)
             {
-                var url = string.Format(_liveLeagueGamesUrl, _key);
+                var url = string.Format(LiveLeagueGamesUrl, _key, leagueId);
                 var uri = new Uri(url);
 
                 return WebGet<LiveLeagueGamesModel>(uri);
+            }
+
+            public MatchDetailsModel GetMatchDetails(long matchId)
+            {
+                var url = string.Format(MatchDetailsUrl, _key, matchId);
+                var uri = new Uri(url);
+
+                return WebGet<MatchDetailsModel>(uri);
+            }
+
+            public MatchHistoryModel GetMatchHistory()
+            {
+                var url = string.Format(MatchHistoryUrl, _key);
+                var uri = new Uri(url);
+
+                return WebGet<MatchHistoryModel>(uri);
             }
 
         }

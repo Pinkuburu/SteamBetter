@@ -2,9 +2,9 @@
 {
     public class BalanceViewModel
     {
-        public float availableBalance { get; set; }
-        public float outstandingTransactions { get; set; }
-        public float givenCredit { get; set; }
-        public string currency { get; set; }
+        public float AvailableBalance { get; set; }
+        public float OutstandingTransactions { get; set; }
+        public float GivenCredit { get; set; }
+        public string Currency { get; set; }
     }
 }

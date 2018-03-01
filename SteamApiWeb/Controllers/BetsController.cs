@@ -15,22 +15,19 @@ namespace SteamBetterWeb.Controllers
             _mapper = AutoMapperConfig.CreateMapper();
         }
 
-        private  string _key;
+        private  string _token;
         private readonly IMapper _mapper;
 
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
 
-            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/token.user"));
-
+            _token = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/token.user"));
         }
 
         public ActionResult Sports()
         {
-
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/token.user"));
-            IPinnacleApi pinnacle = new PinnacleApi(key);
+            IPinnacleApi pinnacle = new PinnacleApi(_token);
             SportsModel sports = pinnacle.GetSports();
 
             SportsViewModel sportVms = _mapper.Map<SportsViewModel>(sports);
@@ -40,28 +37,35 @@ namespace SteamBetterWeb.Controllers
 
         public ActionResult Leagues(int sportId)
         {
-            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            IPinnacleApi pinnacle = new PinnacleApi(_token);
             LeaguesModel leagues = pinnacle.GetLeaguesForSport(sportId);
 
             LeaguesViewModel leagueVms = _mapper.Map<LeaguesViewModel>(leagues);
-            leagueVms.sportId = sportId;
+            leagueVms.SportId = sportId;
 
             return View(leagueVms);
         }
 
         public ActionResult Fixtures(int sportId, int leagueId)
         {
-            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            IPinnacleApi pinnacle = new PinnacleApi(_token);
             FixturesModel fixtures = pinnacle.GetFixturesForSportLeague(sportId, leagueId);
 
             FixturesViewModel fixturesVms = _mapper.Map<FixturesViewModel>(fixtures);
 
-            return View(fixturesVms);
+            if (fixturesVms != null)
+            {
+                return View(fixturesVms);
+            }
+            else
+            {
+                return View("NoData");
+            }
         }
 
         public ActionResult Odds(int sportId, int eventId)
         {
-            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            IPinnacleApi pinnacle = new PinnacleApi(_token);
             OddsModel odds = pinnacle.GetOddsForEvent(sportId, eventId);
 
             OddsViewModel oddsVms = _mapper.Map<OddsViewModel>(odds);
@@ -80,7 +84,7 @@ namespace SteamBetterWeb.Controllers
         
         public ActionResult Line(int sportId, int leagueId, int eventId)
         {
-            IPinnacleApi pinnacle = new PinnacleApi(_key);
+            IPinnacleApi pinnacle = new PinnacleApi(_token);
             LineModel line = pinnacle.GetLineForEvent(sportId, leagueId, eventId);
 
             LineViewModel lineVm = _mapper.Map<LineViewModel>(line);

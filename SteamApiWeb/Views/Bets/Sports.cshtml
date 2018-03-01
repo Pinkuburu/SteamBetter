@@ -8,10 +8,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m => m.sports.First().id)</th>
-            <th>@Html.DisplayNameFor(m => m.sports.First().name)</th>
-            <th>@Html.DisplayNameFor(m => m.sports.First().eventCount)</th>
-            <th>@Html.DisplayNameFor(m => m.sports.First().eventSpecialsCount)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().HasOfferings)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().EventCount)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().EventSpecialsCount)</th>
+            <th>@Html.DisplayNameFor(m => m.Sports.First().LeagueSpecialsCount)</th>
             <th></th>
 
             <th></th>
@@ -19,16 +21,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var s in Model.sports)
+        @foreach (var s in Model.Sports)
         {
-            <tr>
-                <td>@s.id</td>
-                <td>@s.name</td>
-                <td>@s.eventCount</td>
-                <td>@s.eventSpecialsCount</td>
-                <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.id })</td>
-                <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = s.id, leagueId = 0 })</td>
-            </tr>
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.HasOfferings</td>
+            <td>@s.EventCount</td>
+            <td>@s.EventSpecialsCount</td>
+            <td>@s.LeagueSpecialsCount</td>
+            <td>@Html.ActionLink("Leagues", "Leagues", new { sportId = s.Id })</td>
+            <td>@Html.ActionLink("Fixtures", "Fixtures", new { sportId = s.Id, leagueId = 0 })</td>
+        </tr>
 
         }
     </tbody>

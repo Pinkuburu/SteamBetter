@@ -11,22 +11,22 @@ namespace PinnacleApiClient.Services
         }
 
 
-        private const string _balanceUrl = "https://api.pinnacle.com/v1/client/balance";
+        private const string BalanceUrl = "https://api.pinnacle.com/v1/client/balance";
 
-        private const string _sportsUrl = "https://api.pinnacle.com/v2/sports";
-        private const string _leaguesUrl = "https://api.pinnacle.com/v2/leagues?sportId={0}";
-        private const string _oddsSportUrl = "https://api.pinnacle.com/v1/odds?sportId={0}";
-        private const string _oddsEventUrl = "https://api.pinnacle.com/v1/odds?sportId={0}&eventIds={1}";
-        private const string _fixturesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}";
-        private const string _fixturesByLeaguesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}&leagueIds={1}";
-        private const string _linesUrl = "https://api.pinnacle.com/v1/line?sportId={0}&leagueId={1}&eventId={2}&team=Team1&betType=MONEYLINE&oddsFormat=Decimal&periodNumber=0";
+        private const string SportsUrl = "https://api.pinnacle.com/v2/sports";
+        private const string LeaguesUrl = "https://api.pinnacle.com/v2/leagues?sportId={0}";
+        private const string OddsSportUrl = "https://api.pinnacle.com/v1/odds?sportId={0}";
+        private const string OddsEventUrl = "https://api.pinnacle.com/v1/odds?sportId={0}&eventIds={1}";
+        private const string FixturesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}";
+        private const string FixturesByLeaguesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}&leagueIds={1}";
+        private const string LinesUrl = "https://api.pinnacle.com/v1/line?sportId={0}&leagueId={1}&eventId={2}&team=Team1&betType=MONEYLINE&oddsFormat=Decimal&periodNumber=0";
 
 
-        private const string _straightBetsUrl = "https://api.pinnacle.com/v2/bets/straight";
+        private const string StraightBetsUrl = "https://api.pinnacle.com/v2/bets/straight";
 
         public SportsModel GetSports()
         {
-            var url = string.Format(_sportsUrl);
+            var url = string.Format(SportsUrl);
             var uri = new Uri(url);
 
             return WebGet<SportsModel>(uri);
@@ -34,7 +34,7 @@ namespace PinnacleApiClient.Services
 
         public LeaguesModel GetLeaguesForSport(int sportId)
         {
-            var url = string.Format(_leaguesUrl, sportId);
+            var url = string.Format(LeaguesUrl, sportId);
             var uri = new Uri(url);
 
             return WebGet<LeaguesModel>(uri);
@@ -42,7 +42,7 @@ namespace PinnacleApiClient.Services
 
         public OddsModel GetOddsForSport(int sportId)
         {
-            var url = string.Format(_oddsSportUrl, sportId);
+            var url = string.Format(OddsSportUrl, sportId);
             var uri = new Uri(url);
 
             return WebGet<OddsModel>(uri);
@@ -50,7 +50,7 @@ namespace PinnacleApiClient.Services
 
         public OddsModel GetOddsForEvent(int sportId, int eventId)
         {
-            var url = string.Format(_oddsEventUrl, sportId, eventId);
+            var url = string.Format(OddsEventUrl, sportId, eventId);
             var uri = new Uri(url);
 
             return WebGet<OddsModel>(uri);
@@ -61,11 +61,11 @@ namespace PinnacleApiClient.Services
             string url;
             if (leagueId == 0)
             {
-                url = string.Format(_fixturesUrl, sportId);
+                url = string.Format(FixturesUrl, sportId);
             }
             else
             {
-                url = string.Format(_fixturesByLeaguesUrl, sportId, leagueId);
+                url = string.Format(FixturesByLeaguesUrl, sportId, leagueId);
             }
 
             var uri = new Uri(url);
@@ -74,7 +74,7 @@ namespace PinnacleApiClient.Services
 
         public LineModel GetLineForEvent(int sportId, int leagueId, int eventId)
         {
-            var url = string.Format(_linesUrl, sportId, leagueId, eventId);
+            var url = string.Format(LinesUrl, sportId, leagueId, eventId);
             var uri = new Uri(url);
 
             return WebGet<LineModel>(uri);

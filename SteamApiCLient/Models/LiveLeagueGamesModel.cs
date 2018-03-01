@@ -1,7 +1,9 @@
-﻿namespace SteamApiClient.Models
+﻿// ReSharper disable InconsistentNaming
+
+namespace SteamApiClient.Models
 {
     /// <summary>
-    /// "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}",
+    /// "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}"
     /// </summary>
     public class LiveLeagueGamesModel
     {

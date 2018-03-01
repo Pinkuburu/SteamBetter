@@ -43,8 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\LobbyTypes.cs" />
+    <Compile Include="Enums\Skills.cs" />
+    <Compile Include="Enums\GameModes.cs" />
     <Compile Include="Interfaces\IDota2Match.cs" />
     <Compile Include="Interfaces\ISteampoweredApi.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\MatchHistoryModel.cs" />
+    <Compile Include="Models\MatchDetailsModel.cs" />
     <Compile Include="Models\LeagueListingModel.cs" />
     <Compile Include="Models\LiveLeagueGamesModel.cs" />
     <Compile Include="Services\ApiBase.cs" />

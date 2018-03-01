@@ -4,19 +4,19 @@ namespace SteamBetterWeb.ViewModels.Bets
 {
     public class LineViewModel
     {
-            public string status { get; set; }
-            public float price { get; set; }
-            public int lineId { get; set; }
-            public object altLineId { get; set; }
-            public object team1Score { get; set; }
-            public object team2Score { get; set; }
-            public object team1RedCards { get; set; }
-            public object team2RedCards { get; set; }
-            public float maxRiskStake { get; set; }
-            public float minRiskStake { get; set; }
-            public float maxWinStake { get; set; }
-            public float minWinStake { get; set; }
-            public DateTime effectiveAsOf { get; set; }
+            public string Status { get; set; }
+            public float Price { get; set; }
+            public int LineId { get; set; }
+            public object AltLineId { get; set; }
+            public object Team1Score { get; set; }
+            public object Team2Score { get; set; }
+            public object Team1RedCards { get; set; }
+            public object Team2RedCards { get; set; }
+            public float MaxRiskStake { get; set; }
+            public float MinRiskStake { get; set; }
+            public float MaxWinStake { get; set; }
+            public float MinWinStake { get; set; }
+            public DateTime EffectiveAsOf { get; set; }
 
     }
 }

@@ -2,21 +2,21 @@
 {
     public class LeaguesViewModel
     {
-        public int sportId { get; set; }
+        public int SportId { get; set; }
 
-        public League[] leagues { get; set; }
+        public League[] Leagues { get; set; }
 
         public class League
         {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string homeTeamType { get; set; }
-            public bool hasOfferings { get; set; }
-            public string container { get; set; }
-            public bool allowRoundRobins { get; set; }
-            public int leagueSpecialsCount { get; set; }
-            public int eventSpecialsCount { get; set; }
-            public int eventCount { get; set; }
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string HomeTeamType { get; set; }
+            public bool HasOfferings { get; set; }
+            public string Container { get; set; }
+            public bool AllowRoundRobins { get; set; }
+            public int LeagueSpecialsCount { get; set; }
+            public int EventSpecialsCount { get; set; }
+            public int EventCount { get; set; }
         }
 
     }

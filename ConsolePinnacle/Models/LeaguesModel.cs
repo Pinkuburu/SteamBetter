@@ -1,4 +1,6 @@
-﻿namespace ConsolePinnacle.Models
+﻿// ReSharper disable InconsistentNaming
+
+namespace ConsolePinnacle.Models
 {
     public class LeaguesModel
     {

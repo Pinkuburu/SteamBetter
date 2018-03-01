@@ -2,16 +2,16 @@
 {
     public class SportsViewModel
     {
-        public Sport[] sports { get; set; }
+        public Sport[] Sports { get; set; }
 
         public class Sport
         {
-            public int id { get; set; }
-            public string name { get; set; }
-            public bool hasOfferings { get; set; }
-            public int leagueSpecialsCount { get; set; }
-            public int eventSpecialsCount { get; set; }
-            public int eventCount { get; set; }
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public bool HasOfferings { get; set; }
+            public int LeagueSpecialsCount { get; set; }
+            public int EventSpecialsCount { get; set; }
+            public int EventCount { get; set; }
         }
 
     }

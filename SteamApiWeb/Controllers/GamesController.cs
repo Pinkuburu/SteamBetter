@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.Routing;
+using AutoMapper;
 using SteamApiClient.Interfaces;
 using SteamApiClient.Services;
 
@@ -6,23 +8,51 @@ namespace SteamBetterWeb.Controllers
 {
     public class GamesController : Controller
     {
+        public GamesController()
+        {
+            _mapper = AutoMapperConfig.CreateMapper();
+        }
+
+        private  string _key;
+        private readonly IMapper _mapper;
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+
+            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/key.user"));
+        }
+
         public ActionResult Leagues()
         {
-
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/key.user"));
-            ISteampoweredApi steam = new SteampoweredApi(key);
+            ISteampoweredApi steam = new SteampoweredApi(_key);
             var listing = steam.Dota2MatchApi.GetLeagueListing();
 
             return View(listing);
         }
 
-        public ActionResult LeagueGames()
+        public ActionResult Games(int leagueId)
         {
-            string key = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/key.user"));
-            ISteampoweredApi steam = new SteampoweredApi(key);
-            var games = steam.Dota2MatchApi.GetLiveLeagueGames();
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var games = steam.Dota2MatchApi.GetLiveLeagueGames(leagueId);
 
             return View(games);
+        }
+
+        public ActionResult MatchHistory()
+        {
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var match = steam.Dota2MatchApi.GetMatchHistory();
+
+            return View(match);
+        }
+
+        public ActionResult MatchDetails(long matchId)
+        {
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var match = steam.Dota2MatchApi.GetMatchDetails(matchId);
+
+            return View(match);
         }
     }
 }

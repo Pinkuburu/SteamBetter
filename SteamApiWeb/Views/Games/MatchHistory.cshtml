@@ -1,0 +1,36 @@
+﻿@model SteamApiClient.Models.MatchHistoryModel
+
+<h4>Testing</h4>
+<h3>match history, @Model.result.status, @Model.result.num_results (@Model.result.total_results)</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().match_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().match_seq_num)</th>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().dire_team_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().radiant_team_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().start_time)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var m in Model.result.matches)
+            {
+            <tr>
+                <td>@m.match_id</td>
+                <td>@m.match_seq_num</td>
+                <td>@m.dire_team_id</td>
+                <td>@m.radiant_team_id</td>
+                <td>@DateTimeOffset.FromUnixTimeSeconds(m.start_time).LocalDateTime</td>
+                <td>@Html.ActionLink("MatchInfo", "MatchDetails", new { matchId = m.match_id })</td>
+
+            </tr>
+
+        }
+
+            </tr>
+
+        </tbody>
+    </table>
