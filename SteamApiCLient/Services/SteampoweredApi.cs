@@ -18,7 +18,7 @@ namespace SteamApiClient.Services
         {
             private const string LeagueListingUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}";
 
-            private const string LiveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}&leagueId={1}";
+            private const string LiveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}";
             private const string MatchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id={1}";
 
             private const string MatchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
@@ -40,9 +40,9 @@ namespace SteamApiClient.Services
                 return WebGet<LeagueListingModel>(uri);
             }
 
-            public LiveLeagueGamesModel GetLiveLeagueGames(int leagueId)
+            public LiveLeagueGamesModel GetLiveLeagueGames()
             {
-                var url = string.Format(LiveLeagueGamesUrl, _key, leagueId);
+                var url = string.Format(LiveLeagueGamesUrl, _key);
                 var uri = new Uri(url);
 
                 return WebGet<LiveLeagueGamesModel>(uri);
