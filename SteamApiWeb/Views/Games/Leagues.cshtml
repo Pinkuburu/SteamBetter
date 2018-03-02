@@ -8,7 +8,6 @@
         <tr>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().leagueid)</th>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().name)</th>
-            <th>@Html.DisplayNameFor(m => m.result.leagues.First().description)</th>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().itemdef)</th>
             <th>@Html.DisplayNameFor(m => m.result.leagues.First().tournament_url)</th>
             <th></th>
@@ -19,8 +18,8 @@
     {
         <tr>
             <td>@l.leagueid</td>
-            <td>@l.name</td>
-            <td>@l.description</td>
+            <td title="@l.description">@l.name</td>
+            
             <td>@l.itemdef</td>
             <td><a href="@l.tournament_url" target="tournamentTarget">visit</a></td>
             <td>@Html.ActionLink("Games", "Games", new { leagueId = l.leagueid })</td>

@@ -10,5 +10,7 @@ namespace SteamApiClient.Interfaces
         MatchHistoryModel GetMatchHistory();
 
 
+        TeamInfoModel GetTeamInfo(long teamId);
+        PlayerStatsModel GetPlayerStats(long accountId);
     }
 }

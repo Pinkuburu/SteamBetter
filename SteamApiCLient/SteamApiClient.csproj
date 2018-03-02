@@ -53,6 +53,8 @@
     <Compile Include="Models\MatchDetailsModel.cs" />
     <Compile Include="Models\LeagueListingModel.cs" />
     <Compile Include="Models\LiveLeagueGamesModel.cs" />
+    <Compile Include="Models\PlayerStatsModel.cs" />
+    <Compile Include="Models\TeamInfoModel.cs" />
     <Compile Include="Services\ApiBase.cs" />
     <Compile Include="Services\SteampoweredApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

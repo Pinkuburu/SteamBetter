@@ -54,5 +54,22 @@ namespace SteamBetterWeb.Controllers
 
             return View(match);
         }
+
+        public ActionResult TeamInfo(long teamId)
+        {
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var team = steam.Dota2MatchApi.GetTeamInfo(teamId);
+
+            return View(team);
+        }
+
+        public ActionResult PlayerStats(int accountId)
+        {
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var team = steam.Dota2MatchApi.GetPlayerStats(accountId);
+
+            return View(team);
+            
+        }
     }
 }

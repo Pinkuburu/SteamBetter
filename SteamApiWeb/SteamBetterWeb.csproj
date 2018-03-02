@@ -254,6 +254,8 @@
     <Content Include="Views\Bets\Fixtures.cshtml" />
     <Content Include="Views\Games\MatchDetails.cshtml" />
     <Content Include="Views\Games\MatchHistory.cshtml" />
+    <Content Include="Views\Games\TeamInfo.cshtml" />
+    <Content Include="Views\Games\PlayerStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
