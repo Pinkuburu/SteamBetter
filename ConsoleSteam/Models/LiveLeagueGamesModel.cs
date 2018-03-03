@@ -56,7 +56,7 @@ namespace ConsoleSteam.Models
 
         public class Scoreboard
         {
-            public float duration { get; set; }
+            public double duration { get; set; }
             public int roshan_respawn_timer { get; set; }
             public Radiant radiant { get; set; }
             public Dire dire { get; set; }
@@ -96,8 +96,8 @@ namespace ConsoleSteam.Models
             public int item4 { get; set; }
             public int item5 { get; set; }
             public int respawn_timer { get; set; }
-            public float position_x { get; set; }
-            public float position_y { get; set; }
+            public double position_x { get; set; }
+            public double position_y { get; set; }
             public int net_worth { get; set; }
         }
 
@@ -151,8 +151,8 @@ namespace ConsoleSteam.Models
             public int item4 { get; set; }
             public int item5 { get; set; }
             public int respawn_timer { get; set; }
-            public float position_x { get; set; }
-            public float position_y { get; set; }
+            public double position_x { get; set; }
+            public double position_y { get; set; }
             public int net_worth { get; set; }
         }
 

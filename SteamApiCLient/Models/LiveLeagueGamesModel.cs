@@ -55,7 +55,7 @@ namespace SteamApiClient.Models
 
         public class Scoreboard
         {
-            public float duration { get; set; }
+            public double duration { get; set; }
             public int roshan_respawn_timer { get; set; }
             public Radiant radiant { get; set; }
             public Dire dire { get; set; }
@@ -95,8 +95,8 @@ namespace SteamApiClient.Models
             public int item4 { get; set; }
             public int item5 { get; set; }
             public int respawn_timer { get; set; }
-            public float position_x { get; set; }
-            public float position_y { get; set; }
+            public double position_x { get; set; }
+            public double position_y { get; set; }
             public int net_worth { get; set; }
         }
 
@@ -121,55 +121,12 @@ namespace SteamApiClient.Models
             public int score { get; set; }
             public int tower_state { get; set; }
             public int barracks_state { get; set; }
-            public Player1[] players { get; set; }
-            public Ability1[] abilities { get; set; }
-            public Pick1[] picks { get; set; }
-            public Ban1[] bans { get; set; }
+            public Player[] players { get; set; }
+            public Ability[] abilities { get; set; }
+            public Pick[] picks { get; set; }
+            public Ban[] bans { get; set; }
         }
 
-        public class Player1
-        {
-            public int player_slot { get; set; }
-            public int account_id { get; set; }
-            public int hero_id { get; set; }
-            public int kills { get; set; }
-            public int death { get; set; }
-            public int assists { get; set; }
-            public int last_hits { get; set; }
-            public int denies { get; set; }
-            public int gold { get; set; }
-            public int level { get; set; }
-            public int gold_per_min { get; set; }
-            public int xp_per_min { get; set; }
-            public int ultimate_state { get; set; }
-            public int ultimate_cooldown { get; set; }
-            public int item0 { get; set; }
-            public int item1 { get; set; }
-            public int item2 { get; set; }
-            public int item3 { get; set; }
-            public int item4 { get; set; }
-            public int item5 { get; set; }
-            public int respawn_timer { get; set; }
-            public float position_x { get; set; }
-            public float position_y { get; set; }
-            public int net_worth { get; set; }
-        }
-
-        public class Ability1
-        {
-            public int ability_id { get; set; }
-            public int ability_level { get; set; }
-        }
-
-        public class Pick1
-        {
-            public int hero_id { get; set; }
-        }
-
-        public class Ban1
-        {
-            public int hero_id { get; set; }
-        }
 
         public class Player2
         {

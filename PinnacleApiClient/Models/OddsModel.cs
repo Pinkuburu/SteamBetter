@@ -27,34 +27,34 @@ namespace PinnacleApiClient.Models
             public int lineId { get; set; }
             public int number { get; set; }
             public DateTime cutoff { get; set; }
-            public float maxMoneyline { get; set; }
+            public double maxMoneyline { get; set; }
             public Moneyline moneyline { get; set; }
-            public float maxSpread { get; set; }
-            public float maxTotal { get; set; }
+            public double maxSpread { get; set; }
+            public double maxTotal { get; set; }
             public Spread[] spreads { get; set; }
             public Total[] totals { get; set; }
         }
 
         public class Moneyline
         {
-            public float home { get; set; }
-            public float away { get; set; }
+            public double home { get; set; }
+            public double away { get; set; }
         }
 
         public class Spread
         {
-            public float hdp { get; set; }
-            public float home { get; set; }
-            public float away { get; set; }
+            public double hdp { get; set; }
+            public double home { get; set; }
+            public double away { get; set; }
             public long altLineId { get; set; }
         }
 
         public class Total
         {
-            public float points { get; set; }
-            public float over { get; set; }
-            public float under { get; set; }
-            public long altLineId { get; set; }
+            public double points { get; set; }
+            public double over { get; set; }
+            public double under { get; set; }
+            public double altLineId { get; set; }
         }
 
     }

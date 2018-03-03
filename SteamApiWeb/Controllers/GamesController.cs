@@ -2,7 +2,10 @@
 using System.Web.Routing;
 using AutoMapper;
 using SteamApiClient.Interfaces;
+using SteamApiClient.Models;
 using SteamApiClient.Services;
+using SteamBetterWeb.Mappings;
+using SteamBetterWeb.ViewModels.Games;
 
 namespace SteamBetterWeb.Controllers
 {
@@ -10,10 +13,10 @@ namespace SteamBetterWeb.Controllers
     {
         public GamesController()
         {
-            _mapper = AutoMapperConfig.CreateMapper();
+            _mapper = AutoMapperConfig.CreateGamesMapper();
         }
 
-        private  string _key;
+        private string _key;
         private readonly IMapper _mapper;
 
         protected override void Initialize(RequestContext requestContext)
@@ -34,9 +37,11 @@ namespace SteamBetterWeb.Controllers
         public ActionResult Games()
         {
             ISteampoweredApi steam = new SteampoweredApi(_key);
-            var games = steam.Dota2MatchApi.GetLiveLeagueGames();
+            LiveLeagueGamesModel games = steam.Dota2MatchApi.GetLiveLeagueGames();
 
-            return View(games);
+            LiveLeagueGamesViewModel gameVms = _mapper.Map<LiveLeagueGamesViewModel>(games);
+
+            return View(gameVms);
         }
 
         public ActionResult MatchHistory()

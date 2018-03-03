@@ -1,54 +1,80 @@
-﻿@model SteamApiClient.Models.LiveLeagueGamesModel
+﻿@model SteamBetterWeb.ViewModels.Games.LiveLeagueGamesViewModel
 
 <h4>Testing</h4>
-<h3>games</h3>
+<h3>games (@Model.Result.Games.Length)</h3>
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().league_id)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().stage_name)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().dire_team.team_name)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().dire_series_wins)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().radiant_team.team_name)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().radiant_series_wins)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().players)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().spectators)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().match_id)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().series_id)</th>
-            <th>@Html.DisplayNameFor(m => m.result.games.First().series_type)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().LeagueId)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().StageName)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().DireTeam.TeamName)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().DireSeriesWins)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().RadiantTeam.TeamName)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().RadiantSeriesWins)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().Players)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().Scoreboard)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().Spectators)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().MatchId)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().SeriesId)</th>
+            <th>@Html.DisplayNameFor(m => m.Result.Games.First().SeriesType)</th>
             <th></th>
 
         </tr>
     </thead>
     <tbody>
-    @foreach (var g in Model.result.games)
-    {
-        <tr>
-            <td>@g.league_id</td>
-            <td>@g.stage_name</td>
-            <td>@Html.ActionLink(g.dire_team?.team_name ?? "<noname>", "TeamInfo", new { teamId = g.dire_team?.team_id })</td>
-            <td>@(g.dire_series_wins)</td>
-            <td>@Html.ActionLink(g.radiant_team?.team_name ?? "<noname>", "TeamInfo", new { teamId = g.radiant_team?.team_id })</td>
-            <td>@(g.radiant_series_wins)</td>
-            
-            <td><ul>
-            @foreach (var p in g.players)
-            {
-                <li>@Html.ActionLink(p.name, "PlayerStats", new { accountId = p.account_id })</li>
+        @foreach (var g in Model.Result.Games)
+        {
+            <tr>
+                <td>@g.LeagueId</td>
+                <td>@g.StageName</td>
+                <td>@Html.ActionLink(g.DireTeam?.TeamName ?? "<noname>", "TeamInfo", new { teamId = g.DireTeam?.TeamId })</td>
+                <td>@(g.DireSeriesWins)</td>
+                <td>@Html.ActionLink(g.RadiantTeam?.TeamName ?? "<noname>", "TeamInfo", new { teamId = g.RadiantTeam?.TeamId })</td>
+                <td>@(g.RadiantSeriesWins)</td>
 
-            }
-            </ul> </td>
+                <td>
+                    <ul>
+                        @foreach (var p in g.Players)
+                        {
+                            <li>@Html.ActionLink(p.name, "PlayerStats", new { accountId = p.AccountId })</li>
 
-            <td>@g.spectators</td>
-            <td>@g.match_id</td>
-            <td>@g.series_id</td>
-            <td>@g.series_type</td>
+                        }
+                    </ul>
+                </td>
 
-            <td>@Html.ActionLink("Match", "MatchDetails", new { matchId = g.match_id })</td>
+                <td>
+                    @if (g.Scoreboard != null)
+                    {
+                        <ul title="dire">
 
-        </tr>
+                            @foreach (var dp in g.Scoreboard.dire.Players)
+                            {
+                            <li>@Html.ActionLink(dp.AccountId.ToString(), "PlayerStats", new { accountId = dp.AccountId })</li>
 
-    }
+                            }
+                        </ul>
+                        <ul title="radiant">
+
+
+                            @foreach (var rp in g.Scoreboard.radiant.Players)
+                            {
+                            <li>@Html.ActionLink(rp.AccountId.ToString(), "PlayerStats", new { accountId = rp.AccountId })</li>
+
+                            }
+                        </ul>
+                    }
+                </td>
+
+                <td>@g.Spectators</td>
+                <td>@g.MatchId</td>
+                <td>@g.SeriesId</td>
+                <td>@g.SeriesType</td>
+
+                <td>@Html.ActionLink("Match", "MatchDetails", new { matchId = g.MatchId })</td>
+
+            </tr>
+
+        }
     </tbody>
 </table>

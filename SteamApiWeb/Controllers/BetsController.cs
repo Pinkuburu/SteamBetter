@@ -4,6 +4,7 @@ using AutoMapper;
 using PinnacleApiClient.Interfaces;
 using PinnacleApiClient.Models;
 using PinnacleApiClient.Services;
+using SteamBetterWeb.Mappings;
 using SteamBetterWeb.ViewModels.Bets;
 
 namespace SteamBetterWeb.Controllers
@@ -12,7 +13,7 @@ namespace SteamBetterWeb.Controllers
     {
         public BetsController()
         {
-            _mapper = AutoMapperConfig.CreateMapper();
+            _mapper = AutoMapperConfig.CreateBetsMapper();
         }
 
         private  string _token;

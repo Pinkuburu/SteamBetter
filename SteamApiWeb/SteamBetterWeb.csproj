@@ -141,7 +141,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="Controllers\EconomyController.cs" />
+    <Compile Include="Mappings\AutoMapperConfig.cs" />
+    <Compile Include="Mappings\GameMappings.cs" />
+    <Compile Include="Mappings\BetsMapping.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -158,6 +161,15 @@
     <Compile Include="ViewModels\Bets\OddsViewModel.cs" />
     <Compile Include="ViewModels\Bets\SportsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Economy\GameItemsModel.cs" />
+    <Compile Include="ViewModels\Economy\HeroesModel.cs" />
+    <Compile Include="ViewModels\Economy\RaritiesModel.cs" />
+    <Compile Include="ViewModels\Games\LeagueListingViewModel.cs" />
+    <Compile Include="ViewModels\Games\LiveLeagueGamesViewModel.cs" />
+    <Compile Include="ViewModels\Games\MatchDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Games\MatchHistoryViewModel.cs" />
+    <Compile Include="ViewModels\Games\PlayerStatsViewModel.cs" />
+    <Compile Include="ViewModels\Games\TeamInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -256,10 +268,12 @@
     <Content Include="Views\Games\MatchHistory.cshtml" />
     <Content Include="Views\Games\TeamInfo.cshtml" />
     <Content Include="Views\Games\PlayerStats.cshtml" />
+    <Content Include="Views\Economy\Heroes.cshtml" />
+    <Content Include="Views\Economy\GameItems.cshtml" />
+    <Content Include="Views\Economy\Rarities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\Games\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

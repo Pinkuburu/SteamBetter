@@ -25,7 +25,7 @@
             <td>@t.country_code</td>
             <td>@Html.ActionLink(t.admin_account_id.ToString(), "PlayerStats", new { accountId = t.admin_account_id }) </td>
             <td>@Html.ActionLink(t.player_0_account_id.ToString(), "PlayerStats", new { accountId = t.player_0_account_id }) </td>
-            <td>@t.url</td>
+            <td><a href="@t.url">visit</a></td>
             <td>@DateTimeOffset.FromUnixTimeSeconds(t.time_created).ToLocalTime()</td>
 
         </tr>
