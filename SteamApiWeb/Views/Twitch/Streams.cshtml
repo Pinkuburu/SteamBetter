@@ -3,36 +3,42 @@
 
 
 <h4>Testing</h4>
-<h3>Top games, @Model.Pagination.Cursor</h3>
+<h3>Game streams, @Model.Pagination.Cursor</h3>
 
 <table class="table">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(m => m.Data.First().Id)</th>
             <th>@Html.DisplayNameFor(m => m.Data.First().Title)</th>
+            <th>@Html.DisplayNameFor(m => m.Data.First().ViewerCount)</th>
             <th>@Html.DisplayNameFor(m => m.Data.First().UserId)</th>
             <th>@Html.DisplayNameFor(m => m.Data.First().ViewerCount)</th>
+            <th>@Html.DisplayNameFor(m => m.Data.First().Type)</th>
+            <th>@Html.DisplayNameFor(m => m.Data.First().StartedAt)</th>
             <th>@Html.DisplayNameFor(m => m.Data.First().ThumbnailUrl)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-    
-        @foreach (var d in Model.Data)
-        {
-        <tr>
-            <td>@d.Id</td>
-            <td>@d.Title</td>
-            <td>@d.UserId</td>
-            <td>@d.ViewerCount</td>
-            <td><img src="@d.ThumbnailUrl.Replace("{width}","50").Replace("{height}","50")" /></td>
-            <td></td>
 
-        </tr>
+        @foreach (var d in Model.Data.OrderByDescending(m => m.StartedAt))
+        {
+            <tr>
+                <td>@d.Id</td>
+                <td>@d.Title</td>
+                <td>@d.ViewerCount</td>
+                <td>@d.UserId</td>
+                <td>@d.ViewerCount</td>
+                <td>@d.Type</td>
+                <td>@d.StartedAt</td>
+                <td><img src="@d.ThumbnailUrl.Replace("{width}","50").Replace("{height}","50")" /></td>
+                <td></td>
+
+            </tr>
 
         }
 
-    
+
 
     </tbody>
 </table>
