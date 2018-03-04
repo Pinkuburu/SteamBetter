@@ -6,6 +6,11 @@ namespace SteamApiClient.Services
 {
     public class Dota2Match : ApiBase, IDota2Match
     {
+        public Dota2Match(string key)
+        {
+            _key = key;
+        }
+
         private const string LeagueListingUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v1?key={0}";
 
         private const string LiveLeagueGamesUrl = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v1?key={0}";
@@ -17,11 +22,7 @@ namespace SteamApiClient.Services
 
         private readonly string _key;
 
-        public Dota2Match(string key)
-        {
-            _key = key;
-        }
-
+        
         public LeagueListingModel GetLeagueListing()
         {
             var url = string.Format(LeagueListingUrl, _key);

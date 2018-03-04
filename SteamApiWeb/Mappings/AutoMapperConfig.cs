@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using SteamBetterWeb.Mappings;
 
 namespace SteamBetterWeb.Mappings
 {
@@ -15,6 +14,13 @@ namespace SteamBetterWeb.Mappings
         public static IMapper CreateGamesMapper()
         {
             var config = new MapperConfiguration(cfg => { cfg.AddProfile<GamesMappingProfile>(); });
+            config.AssertConfigurationIsValid();
+            return config.CreateMapper();
+        }
+
+        public static IMapper CreateTwitchMapper()
+        {
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile<TwitchMappingProfile>(); });
             config.AssertConfigurationIsValid();
             return config.CreateMapper();
         }

@@ -7,6 +7,11 @@ namespace SteamApiClient.Services
 {
     public class EconomyDota2Match : ApiBase, IEconDota2
     {
+        public EconomyDota2Match(string key)
+        {
+            _key = key;
+        }
+
         private const string GameItemsUrl = "http://api.steampowered.com/IEconDOTA2_570/GetGameItems/v1?key={0}";
         private const string HeroesUrl = "http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1?key={0}";
         private const string RaritiesUrl = "http://api.steampowered.com/IEconDOTA2_570/GetRarities/v1?key={0}";
@@ -17,10 +22,6 @@ namespace SteamApiClient.Services
         private static MemoryCache _heroesCache = MemoryCache.Default;
         private static MemoryCache _raritiesCache = MemoryCache.Default;
 
-        public EconomyDota2Match(string key)
-        {
-            _key = key;
-        }
 
         public GameItemsModel GetGameItems()
         {

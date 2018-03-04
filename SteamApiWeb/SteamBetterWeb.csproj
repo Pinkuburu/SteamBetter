@@ -142,9 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EconomyController.cs" />
+    <Compile Include="Controllers\TwitchController.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
-    <Compile Include="Mappings\GameMappings.cs" />
-    <Compile Include="Mappings\BetsMapping.cs" />
+    <Compile Include="Mappings\TwitchMappingProfile.cs" />
+    <Compile Include="Mappings\GameMappingProfile.cs" />
+    <Compile Include="Mappings\BetsMappingProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -170,6 +172,8 @@
     <Compile Include="ViewModels\Games\MatchHistoryViewModel.cs" />
     <Compile Include="ViewModels\Games\PlayerStatsViewModel.cs" />
     <Compile Include="ViewModels\Games\TeamInfoViewModel.cs" />
+    <Compile Include="ViewModels\Twitch\StreamsViewModel.cs" />
+    <Compile Include="ViewModels\Twitch\TopGamesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -182,6 +186,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="secret.user">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="key.user">
@@ -271,6 +278,8 @@
     <Content Include="Views\Economy\Heroes.cshtml" />
     <Content Include="Views\Economy\GameItems.cshtml" />
     <Content Include="Views\Economy\Rarities.cshtml" />
+    <Content Include="Views\Twitch\TopGames.cshtml" />
+    <Content Include="Views\Twitch\Streams.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -288,6 +297,10 @@
     <ProjectReference Include="..\SteamApiCLient\SteamApiClient.csproj">
       <Project>{dcf412f0-6335-4bf4-a519-4c0a30801cad}</Project>
       <Name>SteamApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TwitchApiClient\TwitchApiClient.csproj">
+      <Project>{fd2aaaa5-95d8-41db-9d8e-c1cf2c195a7b}</Project>
+      <Name>TwitchApiClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
