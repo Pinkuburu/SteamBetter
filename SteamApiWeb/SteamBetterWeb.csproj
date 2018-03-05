@@ -142,8 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EconomyController.cs" />
+    <Compile Include="Controllers\RiotController.cs" />
     <Compile Include="Controllers\TwitchController.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
+    <Compile Include="Mappings\RiotMappingProfile.cs" />
     <Compile Include="Mappings\TwitchMappingProfile.cs" />
     <Compile Include="Mappings\GameMappingProfile.cs" />
     <Compile Include="Mappings\BetsMappingProfile.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="ViewModels\Games\MatchHistoryViewModel.cs" />
     <Compile Include="ViewModels\Games\PlayerStatsViewModel.cs" />
     <Compile Include="ViewModels\Games\TeamInfoViewModel.cs" />
+    <Compile Include="ViewModels\Riot\SummonerViewModel.cs" />
     <Compile Include="ViewModels\Twitch\StreamsViewModel.cs" />
     <Compile Include="ViewModels\Twitch\TopGamesViewModel.cs" />
   </ItemGroup>
@@ -186,6 +189,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="apikey.user">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="secret.user">
@@ -280,6 +286,7 @@
     <Content Include="Views\Economy\Rarities.cshtml" />
     <Content Include="Views\Twitch\TopGames.cshtml" />
     <Content Include="Views\Twitch\Streams.cshtml" />
+    <Content Include="Views\Riot\Summoner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,6 +300,10 @@
     <ProjectReference Include="..\PinnacleApiCLient\PinnacleApiClient.csproj">
       <Project>{366618a1-c0b4-40c3-a5a7-1514e46c9d44}</Project>
       <Name>PinnacleApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RiotApiClient\RiotApiClient.csproj">
+      <Project>{efbe5fa3-c899-4a04-9daf-0189c78e3cbb}</Project>
+      <Name>RiotApiClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\SteamApiCLient\SteamApiClient.csproj">
       <Project>{dcf412f0-6335-4bf4-a519-4c0a30801cad}</Project>

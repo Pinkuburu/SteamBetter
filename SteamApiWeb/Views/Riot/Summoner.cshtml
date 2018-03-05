@@ -1,0 +1,36 @@
+﻿@using SteamBetterWeb.ViewModels.Riot
+@model SummonerViewModel
+
+<h4>Testing</h4>
+<h3>summoner</h3>
+
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Id)</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.AccountId)</th>
+            <td>@Model.AccountId</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.SummonerLevel)</th>
+            <td>@Model.SummonerLevel</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ProfileIconId)</th>
+            <td>@Model.ProfileIconId</td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.RevisionDate)</th>
+            <td>@Model.RevisionDate</td>
+        </tr>
+
+    </tbody>
+</table>

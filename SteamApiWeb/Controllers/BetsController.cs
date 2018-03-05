@@ -16,7 +16,7 @@ namespace SteamBetterWeb.Controllers
             _mapper = AutoMapperConfig.CreateBetsMapper();
         }
 
-        private  string _token;
+        private string _token;
         private readonly IMapper _mapper;
 
         protected override void Initialize(RequestContext requestContext)

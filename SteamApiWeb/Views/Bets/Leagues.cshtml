@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var l in Model.Leagues)
+        @foreach (var l in Model.Leagues.Where(l => l.HasOfferings))
         {
         <tr>
             <td>@l.Id</td>

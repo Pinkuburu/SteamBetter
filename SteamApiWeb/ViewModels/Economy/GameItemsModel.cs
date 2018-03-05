@@ -3,22 +3,22 @@ namespace SteamBetterWeb.ViewModels.Economy
 {
     public class GameItemsModel
     {
-        public Results result { get; set; }
+        public Results Result { get; set; }
 
         public class Results
         {
-            public Item[] items { get; set; }
-            public int status { get; set; }
+            public Item[] Items { get; set; }
+            public int Status { get; set; }
         }
 
         public class Item
         {
             public int id { get; set; }
-            public string name { get; set; }
-            public int cost { get; set; }
-            public int secret_shop { get; set; }
-            public int side_shop { get; set; }
-            public int recipe { get; set; }
+            public string Name { get; set; }
+            public int Cost { get; set; }
+            public int SecretShop { get; set; }
+            public int SideShop { get; set; }
+            public int Recipe { get; set; }
         }
 
     }

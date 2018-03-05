@@ -1,5 +1,4 @@
-﻿using SteamApiClient.Services;
-
+﻿
 namespace SteamApiClient.Interfaces
 {
     public interface ISteampoweredApi

@@ -7,7 +7,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("PinnacleApiClient")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SteamBetter")]
 [assembly: AssemblyCopyright("Copyright © 2018 DahlLabs")]

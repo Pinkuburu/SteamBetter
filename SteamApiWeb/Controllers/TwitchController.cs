@@ -3,7 +3,6 @@ using System.Web.Routing;
 using AutoMapper;
 using SteamBetterWeb.Mappings;
 using SteamBetterWeb.ViewModels.Twitch;
-using TwitchApiClient.Interfaces;
 using TwitchApiClient.Models;
 using TwitchApiClient.Services;
 

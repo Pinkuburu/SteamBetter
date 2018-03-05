@@ -25,5 +25,12 @@ namespace SteamBetterWeb.Mappings
             return config.CreateMapper();
         }
 
+        public static IMapper CreateRiotMapper()
+        {
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile<RiotMappingProfile>(); });
+            config.AssertConfigurationIsValid();
+            return config.CreateMapper();
+        }
+
     }
 }

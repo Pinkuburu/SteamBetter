@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var s in Model.Sports)
+        @foreach (var s in Model.Sports.Where( s=>s.Id <= 12))
         {
         <tr>
             <td>@s.Id</td>

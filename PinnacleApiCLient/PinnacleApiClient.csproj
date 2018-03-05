@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IPinnacleApi.cs" />
     <Compile Include="Models\BalanceModel.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\FixturesModel.cs" />
     <Compile Include="Models\LeaguesModel.cs" />
     <Compile Include="Models\LineModel.cs" />

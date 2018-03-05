@@ -26,13 +26,13 @@ namespace SteamBetterWeb.Controllers
             _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/key.user"));
         }
 
-        //public ActionResult Leagues()
-        //{
-        //    ISteampoweredApi steam = new SteampoweredApi(_key);
-        //    var listing = steam.Dota2MatchApi.GetLeagueListing();
+        public ActionResult Leagues()
+        {
+            ISteampoweredApi steam = new SteampoweredApi(_key);
+            var listing = steam.Dota2MatchApi.GetLeagueListing();
 
-        //    return View(listing);
-        //}
+            return View(listing);
+        }
 
         public ActionResult Games()
         {

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using PinnacleApiClient.Models;
 
 namespace PinnacleApiClient.Services
 {
     public abstract class ApiBase
     {
-        public ApiBase(string token)
+        protected ApiBase(string token)
         {
             _token = token;
         }
@@ -24,6 +24,12 @@ namespace PinnacleApiClient.Services
                 try
                 {
                     string data = wc.DownloadString(uri);
+
+                    var error = JsonConvert.DeserializeObject<ErrorModel>(data);
+                    if (error?.status != null && error?.status != "SUCCESS")
+                    {
+                        throw new Exception(error.status);
+                    }
 
                     var lm = JsonConvert.DeserializeObject<T>(data);
                     return lm;

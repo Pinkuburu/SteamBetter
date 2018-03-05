@@ -16,16 +16,16 @@
         <table class="table">
             <tbody>
                 <tr>
+                    <th>@Html.DisplayNameFor(m => m.Status)</th>
+                    <td>@Model.Status</td>
+                </tr>
+                <tr>
                     <th>@Html.DisplayNameFor(m => m.LineId)</th>
                     <td>@Html.TextBoxFor(m => m.LineId, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.EffectiveAsOf)</th>
                     <td>@Html.TextBoxFor(m => m.EffectiveAsOf, new { @readonly = "readonly" })</td>
-                </tr>
-                <tr>
-                    <th>@Html.DisplayNameFor(m => m.Status)</th>
-                    <td>@Html.TextBoxFor(m => m.Status, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.Price)</th>
@@ -40,8 +40,8 @@
                     <td>@Html.TextBoxFor(m => m.Team2Score, new { @readonly = "readonly" })</td>
                 </tr>
                 <tr>
-                    <td>@Html.ActionLink("Place bet", "PostBet", new { lineId = Model.LineId })</td>
-                    <td><input type="submit" value="Place bet" class="btn btn-default" /></td>
+                    <td></td>
+                    <td><input type="submit" value="Place bet" class="btn " /></td>
                 </tr>
 
             </tbody>

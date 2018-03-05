@@ -2,26 +2,19 @@
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
-using SteamApiClient.Models;
 
-namespace SteamApiClient.Services
+namespace RiotApiClient.Services
 {
-    public abstract class ApiBase
+    public class ApiBase
     {
-
         protected T WebGet<T>(Uri uri)
         {
             using (var wc = new WebClient())
             {
+
                 try
                 {
                     string data = wc.DownloadString(uri);
-
-                    var error = JsonConvert.DeserializeObject<ErrorModel>(data);
-                    if (error?.result?.error != null)
-                    {
-                        throw new Exception(error.result.error);
-                    }
 
                     var lm = JsonConvert.DeserializeObject<T>(data);
                     return lm;
@@ -40,6 +33,5 @@ namespace SteamApiClient.Services
                 }
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PinnacleApiClient.Tests")]
+[assembly: AssemblyTitle("RiotApiClient.Tests")]
 [assembly: AssemblyDescription("")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 [assembly: CLSCompliant(true)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("314c5549-78fc-4d4a-86dc-e6baca66d3d2")]
+[assembly: Guid("c7ae6120-c56a-4e3c-bbf2-cd32e2393605")]
 
 // Version information for an assembly consists of the following four values:
 // You can specify all the values or you can default the Build and Revision Numbers

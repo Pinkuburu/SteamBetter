@@ -20,8 +20,7 @@ namespace PinnacleApiClient.Services
         private const string FixturesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}";
         private const string FixturesByLeaguesUrl = "https://api.pinnacle.com/v1/fixtures?sportId={0}&leagueIds={1}";
         private const string LinesUrl = "https://api.pinnacle.com/v1/line?sportId={0}&leagueId={1}&eventId={2}&team=Team1&betType=MONEYLINE&oddsFormat=Decimal&periodNumber=0";
-
-
+        
         private const string StraightBetsUrl = "https://api.pinnacle.com/v2/bets/straight";
 
         public SportsModel GetSports()
