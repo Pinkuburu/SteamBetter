@@ -1,7 +1,7 @@
 ﻿
 namespace SteamBetterWeb.ViewModels.Economy
 {
-    public class GameItemsModel
+    public class GameItemsViewModel
     {
         public Results Result { get; set; }
 

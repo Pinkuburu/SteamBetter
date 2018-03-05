@@ -5,6 +5,7 @@ using SteamApiClient.Interfaces;
 using SteamApiClient.Models;
 using SteamApiClient.Services;
 using SteamBetterWeb.Mappings;
+using SteamBetterWeb.ViewModels.Economy;
 using SteamBetterWeb.ViewModels.Games;
 
 namespace SteamBetterWeb.Controllers
@@ -29,27 +30,31 @@ namespace SteamBetterWeb.Controllers
         public ActionResult Heroes()
         {
             ISteampoweredApi steam = new SteampoweredApi(_key);
-            var games = steam.EconomyDota2Api.GetHeroes();
+            var heroes = steam.EconomyDota2Api.GetHeroes();
 
-            LiveLeagueGamesViewModel gameVms = _mapper.Map<LiveLeagueGamesViewModel>(games);
+            HeroesViewModel heroVms = _mapper.Map<HeroesViewModel>(heroes);
 
-            return View(gameVms);
+            return View(heroVms);
         }
 
         public ActionResult GameItems()
         {
             ISteampoweredApi steam = new SteampoweredApi(_key);
-            var match = steam.EconomyDota2Api.GetGameItems();
+            var items = steam.EconomyDota2Api.GetGameItems();
 
-            return View(match);
+            GameItemsViewModel itemVms = _mapper.Map<GameItemsViewModel>(items);
+
+            return View(itemVms);
         }
 
         public ActionResult Rarities()
         {
             ISteampoweredApi steam = new SteampoweredApi(_key);
-            var match = steam.EconomyDota2Api.GetRarities();
+            var rarities = steam.EconomyDota2Api.GetRarities();
+            
+            RaritiesViewModel rarityVms = _mapper.Map<RaritiesViewModel>(rarities);
 
-            return View(match);
+            return View(rarityVms);
         }
 
     }

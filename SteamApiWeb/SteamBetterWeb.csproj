@@ -165,9 +165,9 @@
     <Compile Include="ViewModels\Bets\OddsViewModel.cs" />
     <Compile Include="ViewModels\Bets\SportsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\Economy\GameItemsModel.cs" />
-    <Compile Include="ViewModels\Economy\HeroesModel.cs" />
-    <Compile Include="ViewModels\Economy\RaritiesModel.cs" />
+    <Compile Include="ViewModels\Economy\GameItemsViewModel.cs" />
+    <Compile Include="ViewModels\Economy\HeroesViewModel.cs" />
+    <Compile Include="ViewModels\Economy\RaritiesViewModel.cs" />
     <Compile Include="ViewModels\Games\LeagueListingViewModel.cs" />
     <Compile Include="ViewModels\Games\LiveLeagueGamesViewModel.cs" />
     <Compile Include="ViewModels\Games\MatchDetailsViewModel.cs" />

@@ -1,21 +1,23 @@
 ﻿
 namespace SteamBetterWeb.ViewModels.Economy
 {
-    public class HeroesModel
+    public class RaritiesViewModel
     {
         public Results Result { get; set; }
 
         public class Results
         {
-            public Hero[] Heroes { get; set; }
-            public int Status { get; set; }
             public int Count { get; set; }
+            public Rarity[] Rarities { get; set; }
+            public int Status { get; set; }
         }
 
-        public class Hero
+        public class Rarity
         {
             public string Name { get; set; }
             public int Id { get; set; }
+            public int Order { get; set; }
+            public string Color { get; set; }
         }
 
     }
