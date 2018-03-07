@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IRiotGamesApi.cs" />
+    <Compile Include="Models\GamesModel.cs" />
+    <Compile Include="Models\ChardStatusModel.cs" />
+    <Compile Include="Models\ChampionModel.cs" />
     <Compile Include="Models\SummonerModel.cs" />
     <Compile Include="Services\RiotGamesApi.cs" />
     <Compile Include="Services\ApiBase.cs" />

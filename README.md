@@ -25,7 +25,7 @@ https://developer.riotgames.com/
 
 https://dev.battle.net/
 
-## epicgames, FortNite
+## EpicGames, FortNite
 
 https://fortnitetracker.com/site-api
 
