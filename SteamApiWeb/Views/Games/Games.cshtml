@@ -28,9 +28,9 @@
             <tr>
                 <td>@g.LeagueId</td>
                 <td>@g.StageName</td>
-                <td>@Html.ActionLink(g.DireTeam?.TeamName ?? "<noname>", "TeamInfo", new { teamId = g.DireTeam?.TeamId })</td>
+                <td>@Html.ActionLink("_" + (g.DireTeam?.TeamName ?? "<noname>"), "TeamInfo", new { teamId = g.DireTeam?.TeamId })</td>
                 <td>@(g.DireSeriesWins)</td>
-                <td>@Html.ActionLink(g.RadiantTeam?.TeamName ?? "<noname>", "TeamInfo", new { teamId = g.RadiantTeam?.TeamId })</td>
+                <td>@Html.ActionLink("_" + (g.RadiantTeam?.TeamName ?? "<noname>"), "TeamInfo", new { teamId = g.RadiantTeam?.TeamId })</td>
                 <td>@(g.RadiantSeriesWins)</td>
 
                 <td>

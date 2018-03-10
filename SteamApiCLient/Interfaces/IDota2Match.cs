@@ -12,5 +12,6 @@ namespace SteamApiClient.Interfaces
 
         TeamInfoModel GetTeamInfo(long teamId);
         PlayerStatsModel GetPlayerStats(long accountId);
+        ScheduleModel GetSchedule(int leagueId);
     }
 }

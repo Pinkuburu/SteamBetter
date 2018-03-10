@@ -1,0 +1,26 @@
+﻿@model SteamApiClient.Models.PrizesModel
+
+<h4>Testing</h4>
+<h3>prizes</h3>
+
+<table class="table table-hover tablesorter">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.result.league_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.prize_pool)</th>
+            <th>@Html.DisplayNameFor(m => m.result.status)</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    
+        <tr>
+            <td>@Model.result.league_id</td>
+            <td>@Model.result.prize_pool</td>
+
+            <td>@Model.result.status</td>
+
+        </tr>
+    
+    </tbody>
+</table>

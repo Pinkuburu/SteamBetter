@@ -51,6 +51,8 @@
     <Compile Include="Interfaces\IEconDota2.cs" />
     <Compile Include="Interfaces\IDota2Match.cs" />
     <Compile Include="Interfaces\ISteampoweredApi.cs" />
+    <Compile Include="Models\PrizesModel.cs" />
+    <Compile Include="Models\ScheduleModel.cs" />
     <Compile Include="Models\GameItemsModel.cs" />
     <Compile Include="Models\RaritiesModel.cs" />
     <Compile Include="Models\HeroesModel.cs" />

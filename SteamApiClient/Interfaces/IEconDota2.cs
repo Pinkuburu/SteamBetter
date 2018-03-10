@@ -7,5 +7,6 @@ namespace SteamApiClient.Interfaces
         GameItemsModel GetGameItems();
         HeroesModel GetHeroes();
         RaritiesModel GetRarities();
+        PrizesModel GetPrizes(int leagueId);
     }
 }

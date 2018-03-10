@@ -10,19 +10,21 @@
             <th>@Html.DisplayNameFor(m => m.result.matches.First().match_seq_num)</th>
             <th>@Html.DisplayNameFor(m => m.result.matches.First().dire_team_id)</th>
             <th>@Html.DisplayNameFor(m => m.result.matches.First().radiant_team_id)</th>
+            <th>@Html.DisplayNameFor(m => m.result.matches.First().players)</th>
             <th>@Html.DisplayNameFor(m => m.result.matches.First().start_time)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-            @foreach (var m in Model.result.matches)
-            {
+        @foreach (var m in Model.result.matches)
+        {
             <tr>
                 <td>@m.match_id</td>
                 <td>@m.match_seq_num</td>
                 <td>@m.dire_team_id</td>
                 <td>@m.radiant_team_id</td>
+                <td>@m.players.Length</td>
                 <td>@DateTimeOffset.FromUnixTimeSeconds(m.start_time).LocalDateTime</td>
                 <td>@Html.ActionLink("MatchInfo", "MatchDetails", new { matchId = m.match_id })</td>
 
@@ -32,5 +34,5 @@
 
 
 
-        </tbody>
-    </table>
+    </tbody>
+</table>

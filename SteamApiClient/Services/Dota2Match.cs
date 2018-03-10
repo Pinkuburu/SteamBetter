@@ -17,8 +17,9 @@ namespace SteamApiClient.Services
         private const string MatchDetailsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1?key={0}&match_id={1}";
 
         private const string MatchHistoryUrl = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1?key={0}";
-        private const string TeamInfoUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}&start_at_team_id={1}&teams_requested=1";
-        private const string PlayerStatsUrl = "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id={1}";
+        private const string TeamInfoUrl =     "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v1?key={0}&start_at_team_id={1}&teams_requested=1";
+        private const string PlayerStatsUrl =  "https://api.steampowered.com/IDOTA2Match_570/GetTournamentPlayerStats/v1?key={0}&account_id={1}";
+        private const string ScheduleUrl =     "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v1?key={0}";
 
         private readonly string _key;
 
@@ -69,6 +70,14 @@ namespace SteamApiClient.Services
             var uri = new Uri(url);
 
             return WebGet<PlayerStatsModel>(uri);
+        }
+
+        public ScheduleModel GetSchedule(int leagueId)
+        {
+            var url = string.Format(ScheduleUrl, _key);
+            var uri = new Uri(url);
+
+            return WebGet<ScheduleModel>(uri);
         }
     }
 }

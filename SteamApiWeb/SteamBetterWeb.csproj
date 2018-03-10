@@ -288,6 +288,8 @@
     <Content Include="Views\Twitch\TopGames.cshtml" />
     <Content Include="Views\Twitch\Streams.cshtml" />
     <Content Include="Views\Riot\Summoner.cshtml" />
+    <Content Include="Views\Games\Schedule.cshtml" />
+    <Content Include="Views\Games\Prizes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

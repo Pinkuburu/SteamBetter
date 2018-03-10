@@ -15,6 +15,7 @@ namespace SteamApiClient.Services
         private const string GameItemsUrl = "http://api.steampowered.com/IEconDOTA2_570/GetGameItems/v1?key={0}";
         private const string HeroesUrl = "http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1?key={0}";
         private const string RaritiesUrl = "http://api.steampowered.com/IEconDOTA2_570/GetRarities/v1?key={0}";
+        private const string PrizesUrl = "http://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v1?key={0}&leagueId={1}";
 
         private readonly string _key;
 
@@ -22,6 +23,15 @@ namespace SteamApiClient.Services
         private static MemoryCache _heroesCache = MemoryCache.Default;
         private static MemoryCache _raritiesCache = MemoryCache.Default;
 
+
+        public PrizesModel GetPrizes(int leagueId)
+        {
+            
+            var url = string.Format(PrizesUrl, _key, leagueId);
+            var uri = new Uri(url);
+
+            return WebGet<PrizesModel>(uri);
+        }
 
         public GameItemsModel GetGameItems()
         {
@@ -77,5 +87,4 @@ namespace SteamApiClient.Services
             }
         }
     }
-
 }
