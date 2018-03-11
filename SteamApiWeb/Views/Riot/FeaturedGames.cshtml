@@ -22,7 +22,7 @@
             <td>@l.gameMode</td>
 
             <td>@l.gameType</td>
-            <td>@l.gameStartTime</td>
+            <td>@DateTimeOffset.FromUnixTimeMilliseconds(l.gameStartTime).LocalDateTime</td>
 
 
         </tr>
