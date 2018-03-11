@@ -22,17 +22,58 @@ namespace SteamBetterWeb.Controllers
         {
             base.Initialize(requestContext);
 
-            _apikey = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/apikey.user"));
+            _apikey = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/riot_apikey.user"));
         }
 
-        public ActionResult Summoner()
+        public ActionResult Summoner(string name)
         {
+            name = "RiotSchmick";
             IRiotGamesApi riot = new RiotGamesApi(_apikey);
-            var summoner = riot.GetSummoner("RiotSchmick");
+            var summoner = riot.GetSummoner(name);
 
             SummonerViewModel summonerVm = _mapper.Map<SummonerViewModel>(summoner);
 
             return View(summonerVm);
+        }
+
+        public ActionResult FeaturedGames()
+        {
+            IRiotGamesApi riot = new RiotGamesApi(_apikey);
+            var games = riot.GetFeaturedGames();
+
+           // SummonerViewModel summonerVm = _mapper.Map<SummonerViewModel>(summoner);
+
+            return View(games);
+        }
+
+        public ActionResult Champions()
+        {
+            IRiotGamesApi riot = new RiotGamesApi(_apikey);
+            var champions = riot.GetChampions();
+
+          //  SummonerViewModel summonerVm = _mapper.Map<SummonerViewModel>(summoner);
+
+            return View(champions);
+        }
+
+        public ActionResult ShardStatus()
+        {
+            IRiotGamesApi riot = new RiotGamesApi(_apikey);
+            var chards = riot.GetShardStatus();
+
+            // SummonerViewModel summonerVm = _mapper.Map<SummonerViewModel>(summoner);
+
+            return View(chards);
+        }
+
+        public ActionResult StaticChampions()
+        {
+            IRiotGamesApi riot = new RiotGamesApi(_apikey);
+            var champions = riot.GetStaticChampions();
+
+            // SummonerViewModel summonerVm = _mapper.Map<SummonerViewModel>(summoner);
+
+            return View(champions);
         }
 
     }

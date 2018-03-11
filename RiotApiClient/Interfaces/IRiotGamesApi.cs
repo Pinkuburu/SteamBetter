@@ -5,8 +5,9 @@ namespace RiotApiClient.Interfaces
     public interface IRiotGamesApi
     {
         SummonerModel GetSummoner(string name);
-        ChampionModel GetChamions();
+        ChampionModel GetChampions();
         GamesModel GetFeaturedGames();
         ChardStatusModel GetShardStatus();
+        StaticChampionModel GetStaticChampions();
     }
 }

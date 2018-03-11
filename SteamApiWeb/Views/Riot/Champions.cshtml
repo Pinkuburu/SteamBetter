@@ -1,0 +1,35 @@
+﻿@using SteamBetterWeb.ViewModels.Riot
+@model RiotApiClient.Models.ChampionModel
+
+<h4>Testing</h4>
+<h3>champions</h3>
+
+
+<table class="table table-hover tablesorter">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.champions.First().id)</th>
+            <th>@Html.DisplayNameFor(m => m.champions.First().active)</th>
+            <th>@Html.DisplayNameFor(m => m.champions.First().botEnabled)</th>
+            <th>@Html.DisplayNameFor(m => m.champions.First().botMmEnabled)</th>
+            <th>@Html.DisplayNameFor(m => m.champions.First().freeToPlay)</th>
+            <th>@Html.DisplayNameFor(m => m.champions.First().rankedPlayEnabled)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model.champions.OrderByDescending(l => l.id))
+        {
+            <tr>
+                <td>@l.id</td>
+                <td>@l.active</td>
+
+                <td>@l.botEnabled</td>
+                <td>@l.botMmEnabled</td>
+                <td>@l.freeToPlay</td>
+                <td>@l.rankedPlayEnabled</td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

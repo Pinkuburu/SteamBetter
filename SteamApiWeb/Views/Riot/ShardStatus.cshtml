@@ -1,0 +1,45 @@
+﻿@using SteamBetterWeb.ViewModels.Riot
+@model RiotApiClient.Models.ChardStatusModel
+
+<h4>Testing</h4>
+<h3>chards</h3>
+
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.name)</th>
+            <td>@Model.name</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.hostname)</th>
+            <td>@Model.hostname</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.slug)</th>
+            <td>@Model.slug</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.region_tag)</th>
+            <td>@Model.region_tag</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.services)</th>
+            <td>
+                <ul>
+                    @foreach (var l in Model.services.OrderByDescending(l => l.name))
+                    {
+                        <li>
+                            @($"{l.name} {l.status} {l.slug}")
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+        @* <tr>
+                <th>@Html.LabelFor(m => m.RevisionDate)</th>
+                <td>@Model.RevisionDate</td>
+            </tr>*@
+
+    </tbody>
+</table>

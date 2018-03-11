@@ -9,7 +9,7 @@ namespace RiotApiClient.Tests.API
         [OneTimeSetUp]
         public void Setup()
         {
-            _apiKey = System.IO.File.ReadAllText(@"G:\Projects\GitHub\SteamBetter\SteamApiWeb\apikey.user");
+            _apiKey = System.IO.File.ReadAllText(@"G:\Projects\GitHub\SteamBetter\SteamApiWeb\riot_apikey.user");
 
         }
 
@@ -30,7 +30,7 @@ namespace RiotApiClient.Tests.API
             var riotApi = new RiotGamesApi(_apiKey);
           //   var summoner = riotApi.GetSummoner("RiotSchmick");
             
-            var champ = riotApi.GetChamions();
+            var champ = riotApi.GetChampions();
             Assert.IsNotNull(champ);
         }
 

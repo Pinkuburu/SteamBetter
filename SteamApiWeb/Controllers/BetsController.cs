@@ -23,7 +23,7 @@ namespace SteamBetterWeb.Controllers
         {
             base.Initialize(requestContext);
 
-            _token = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/token.user"));
+            _token = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/pinnacle_token.user"));
         }
 
         public ActionResult Sports()

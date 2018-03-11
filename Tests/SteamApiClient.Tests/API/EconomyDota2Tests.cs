@@ -9,7 +9,7 @@ namespace SteamApiClient.Tests.API
         [OneTimeSetUp]
         public void Setup()
         {
-            _key = System.IO.File.ReadAllText(@"G:\Projects\GitHub\SteamBetter\SteamApiWeb\key.user");
+            _key = System.IO.File.ReadAllText(@"G:\Projects\GitHub\SteamBetter\SteamApiWeb\steam_key.user");
 
         }
 

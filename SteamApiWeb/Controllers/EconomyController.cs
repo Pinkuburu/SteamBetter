@@ -24,7 +24,7 @@ namespace SteamBetterWeb.Controllers
         {
             base.Initialize(requestContext);
 
-            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/key.user"));
+            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/steam_key.user"));
         }
 
         public ActionResult Heroes()

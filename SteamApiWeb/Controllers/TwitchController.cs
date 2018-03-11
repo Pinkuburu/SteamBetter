@@ -25,7 +25,7 @@ namespace SteamBetterWeb.Controllers
         {
             base.Initialize(requestContext);
 
-            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/secret.user"));
+            _key = System.IO.File.ReadAllText(requestContext.HttpContext.Server.MapPath("~/twitch_secret.user"));
         }
 
         public ActionResult TopGames()

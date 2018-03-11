@@ -5,44 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SteamBetter</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-   
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-            @Html.ActionLink("SteamBetter", "Index", "Home", null, new { @class = "navbar-brand" })  &nbsp; &nbsp; &nbsp;
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        @Html.ActionLink("SteamBetter", "Index", "Home", null, new { @class = "navbar-brand" })  &nbsp; &nbsp; &nbsp;
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        @Html.ActionLink("S - Leagues", "Leagues", "Games", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("S - LiveLeagueGames", "Games", "Games", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("S - MatchHistory", "MatchHistory", "Games", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("P - Sports", "Sports", "Bets", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("T - TopGames", "TopGames", "Twitch", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("R - Summoner", "Summoner", "Riot", null, new { @class = "nav-link" })
-                    </li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                </ul>
-            </div>
-        </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("S - Leagues", "Leagues", "Games", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("S - LiveLeagueGames", "Games", "Games", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("S - MatchHistory", "MatchHistory", "Games", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("P - Sports", "Sports", "Bets", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("T - TopGames", "TopGames", "Twitch", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("R - Summoner", "Summoner", "Riot", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("R - Games", "FeaturedGames", "Riot", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("R - Shards", "ShardStatus", "Riot", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("R - Champs", "Champions", "Riot", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("R - Champs", "StaticChampions", "Riot", null, new { @class = "nav-link" })
+                </li>
 
-    
+            </ul>
+        </div>
+    </nav>
+
+
     <main role="main" class="container">
         @RenderBody()
         <hr />

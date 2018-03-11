@@ -1,0 +1,31 @@
+﻿@using SteamBetterWeb.ViewModels.Riot
+@model RiotApiClient.Models.GamesModel
+
+<h4>Testing</h4>
+<h3>featured games, @Model.clientRefreshInterval</h3>
+
+
+<table class="table table-hover tablesorter">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.gameList.First().gameId)</th>
+        <th>@Html.DisplayNameFor(m => m.gameList.First().gameMode)</th>
+        <th>@Html.DisplayNameFor(m => m.gameList.First().gameType)</th>
+        <th>@Html.DisplayNameFor(m => m.gameList.First().gameStartTime)</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var l in Model.gameList.OrderByDescending(l => l.gameId))
+    {
+        <tr>
+            <td>@l.gameId</td>
+            <td>@l.gameMode</td>
+
+            <td>@l.gameType</td>
+            <td>@l.gameStartTime</td>
+
+
+        </tr>
+    }
+    </tbody>
+</table>
